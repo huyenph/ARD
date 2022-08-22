@@ -1,5 +1,6 @@
 package com.upm.nativeapp
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
