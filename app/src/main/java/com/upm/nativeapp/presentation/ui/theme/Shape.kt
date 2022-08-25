@@ -1,4 +1,4 @@
-package com.upm.nativeapp.ui.theme
+package com.upm.nativeapp.presentation.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
