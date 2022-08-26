@@ -20,6 +20,10 @@ interface ApiService {
     ): GenericResponse<JsonObject>
 
     @FormUrlEncoded
+    @POST("")
+    fun requestLogin(@FieldMap body: Map<String, Any>): GenericResponse<JsonObject>
+
+    @FormUrlEncoded
     @POST("key, object")
     fun requestNormal(@FieldMap body: Map<String, Any>): GenericResponse<JsonObject>
 

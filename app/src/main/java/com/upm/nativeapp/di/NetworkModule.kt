@@ -10,7 +10,7 @@ import com.upm.nativeapp.data.remote.helper.HttpInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
@@ -45,7 +45,7 @@ annotation class UnAuthNetworkService
 annotation class AuthNetworkService
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(SingletonComponent::class)
 object NetworkModule {
     @GsonBuilderLenient
     @Provides
