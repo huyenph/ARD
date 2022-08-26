@@ -2,6 +2,7 @@ package com.upm.nativeapp.data.local.persistence
 
 import androidx.room.*
 import com.upm.nativeapp.common.extensions.USER_TABLE_NAME
+import com.upm.nativeapp.common.helper.SingleLiveEvent
 import com.upm.nativeapp.data.local.persistence.entity.UserEntity
 
 @Dao

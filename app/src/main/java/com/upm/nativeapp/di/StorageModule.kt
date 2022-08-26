@@ -5,10 +5,10 @@ import com.upm.nativeapp.data.local.storage.Storage
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.components.SingletonComponent
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(SingletonComponent::class)
 abstract class StorageModule {
     @Binds
     abstract fun provideStorage(sharedPreferences: SharedPreferencesStorage): Storage
