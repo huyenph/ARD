@@ -1,4 +1,4 @@
-package com.upm.nativeapp.presentation.activity
+package com.upm.nativeapp.presentation.main.activity
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
