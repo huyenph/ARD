@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import com.upm.nativeapp.R
 import com.upm.nativeapp.presentation.main.viewmodel.MainViewModel
 import com.upm.nativeapp.presentation.ui.theme.UpmAndroidTheme
+import com.upm.nativeapp.presentation.wellness.WellnessScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,7 +37,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             UpmAndroidTheme {
-                MyApp()
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
+                    WellnessScreen()
+                }
             }
         }
     }
