@@ -20,4 +20,12 @@
     <string name="cd_fab_start">start</string>
     <string name="bottom_navigation_home">HOME</string>
     <string name="bottom_navigation_profile">PROFILE</string>
+
+    <string name="total">Total</string>
+    <string name="due">Due</string>
+    <string name="account_redacted">• • • • • </string>
+    <string name="accounts">Accounts</string>
+    <string name="bills">Bills</string>
+    <string name="sort">Sort</string>
+    <string name="see_all">SEE ALL</string>
 </resources>

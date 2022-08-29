@@ -15,3 +15,6 @@ val white150 = Color.White.copy(alpha = 0.15f)
 val white800 = Color.White.copy(alpha = 0.8f)
 val white850 = Color.White.copy(alpha = 0.85f)
 val gray800 = gray900.copy(alpha = 0.8f)
+
+val Green500 = Color(0xFF1EB980)
+val DarkBlue900 = Color(0xFF26282F)
