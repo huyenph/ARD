@@ -26,6 +26,7 @@ fun WaterCounter(
                 WellnessTaskItemState(
                     onClose = { },
                     taskName = "Have you taken your 15 minute walk today?",
+                    onCheckedChange = {}
                 )
             }
             Text(text = "You've had $count glasses.")
