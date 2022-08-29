@@ -25,7 +25,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.upm.nativeapp.R
 import com.upm.nativeapp.presentation.main.viewmodel.MainViewModel
-import com.upm.nativeapp.presentation.ui.theme.UpmAndroidTheme
+import com.upm.nativeapp.presentation.ui.theme.UpmTheme
+import com.upm.nativeapp.presentation.ui.theme.UpmTheme
 import com.upm.nativeapp.presentation.wellness.WellnessScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,7 +37,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            UpmAndroidTheme {
+            UpmTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
@@ -175,7 +176,7 @@ private fun CardContent(name: String) {
 @Preview(showBackground = true, widthDp = 320)
 @Composable
 fun DefaultPreview() {
-    UpmAndroidTheme {
+    UpmTheme {
         Greetings()
     }
 }
@@ -183,7 +184,7 @@ fun DefaultPreview() {
 @Preview(showBackground = true, widthDp = 320, heightDp = 320)
 @Composable
 fun OnBoardingPreview() {
-    UpmAndroidTheme {
+    UpmTheme {
         OnboardingScreen(onContinueClicked = {})
     }
 }
