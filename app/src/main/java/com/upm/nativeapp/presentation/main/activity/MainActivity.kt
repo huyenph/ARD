@@ -1,10 +1,12 @@
 package com.upm.nativeapp.presentation.main.activity
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -25,26 +27,27 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.upm.nativeapp.R
 import com.upm.nativeapp.presentation.main.viewmodel.MainViewModel
+import com.upm.nativeapp.presentation.rally.RallyApp
 import com.upm.nativeapp.presentation.ui.theme.UpmTheme
-import com.upm.nativeapp.presentation.ui.theme.UpmTheme
-import com.upm.nativeapp.presentation.wellness.WellnessScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val mainVM: MainViewModel by viewModels()
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            UpmTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    WellnessScreen()
-                }
-            }
+            RallyApp()
+//            UpmTheme {
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colors.background
+//                ) {
+//                    WellnessScreen()
+//                }
+//            }
         }
     }
 }

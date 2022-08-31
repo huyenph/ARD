@@ -15,7 +15,7 @@ import com.upm.nativeapp.presentation.health.component.AlignYourBodyRow
 import com.upm.nativeapp.presentation.health.component.FavoriteCollectionsGrid
 import com.upm.nativeapp.presentation.health.component.HomeSection
 import com.upm.nativeapp.presentation.health.component.SearchBar
-import com.upm.nativeapp.presentation.ui.theme.UpmAndroidTheme
+import com.upm.nativeapp.presentation.ui.theme.UpmTheme
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
@@ -39,5 +39,5 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 @Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
 @Composable
 fun OnHomeScreenPreview() {
-    UpmAndroidTheme { HomeScreen() }
+    UpmTheme { HomeScreen() }
 }

@@ -6,11 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.upm.nativeapp.presentation.health.screen.HomeScreen
-import com.upm.nativeapp.presentation.ui.theme.UpmAndroidTheme
+import com.upm.nativeapp.presentation.ui.theme.UpmTheme
 
 @Composable
 fun MySootheApp() {
-    UpmAndroidTheme {
+    UpmTheme {
         Scaffold(topBar = { SearchBar() }, bottomBar = { SootheBottomNavigation() }) { padding ->
             HomeScreen(modifier = Modifier.padding(paddingValues = padding))
         }
@@ -20,7 +20,7 @@ fun MySootheApp() {
 @Preview(showBackground = true)
 @Composable
 fun OnMySootheAppPreview() {
-    UpmAndroidTheme {
+    UpmTheme {
         MySootheApp()
     }
 }
