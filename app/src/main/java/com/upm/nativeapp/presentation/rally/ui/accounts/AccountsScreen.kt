@@ -1,3 +1,5 @@
+@file:Suppress("SimplifiableCallChain")
+
 package com.upm.nativeapp.presentation.rally.ui.accounts
 
 import androidx.compose.foundation.clickable
@@ -7,7 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import com.upm.nativeapp.R
 import com.upm.nativeapp.presentation.rally.data.UserData
+import com.upm.nativeapp.presentation.rally.ui.components.AccountRow
+import com.upm.nativeapp.presentation.rally.ui.components.StatementBody
 
 @Composable
 fun AccountsScreen(
