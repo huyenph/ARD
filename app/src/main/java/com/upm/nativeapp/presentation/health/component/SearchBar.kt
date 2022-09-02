@@ -11,7 +11,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.upm.nativeapp.R
-import com.upm.nativeapp.presentation.ui.theme.UpmAndroidTheme
+import com.upm.nativeapp.presentation.ui.theme.UpmTheme
 
 @Composable
 fun SearchBar(modifier: Modifier = Modifier) {
@@ -34,7 +34,7 @@ fun SearchBar(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun OnSearchBarPreview() {
-    UpmAndroidTheme {
+    UpmTheme {
         SearchBar()
     }
 }
