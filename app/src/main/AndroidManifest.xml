@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UpmAndroid">
         <activity
-            android:name="com.upm.nativeapp.presentation.main.activity.MainActivity"
+            android:name="com.upm.nativeapp.presentation.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.UpmAndroid">
             <intent-filter>

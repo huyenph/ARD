@@ -12,25 +12,25 @@ import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 
 private val DarkColorPalette = darkColors(
-    primary = Color.White,
+    primary = primaryColor,
     secondary = rust300,
-    background = gray900,
-    surface = Color.White.copy(alpha = 0.15f),
+    background = backgroundDarkColor,
+    surface = backgroundDarkColor,
     onPrimary = gray900,
     onSecondary = gray900,
-    onBackground = taupe100,
-    onSurface = Color.White.copy(alpha = .8f)
+    onBackground = textLightColor,
+    onSurface = textLightColor
 )
 
 private val LightColorPalette = lightColors(
-    primary = gray900,
+    primary = primaryColor,
     secondary = rust600,
-    background = taupe100,
-    surface = Color.White.copy(alpha = .85f),
+    background = backgroundLightColor,
+    surface = backgroundLightColor,
     onPrimary = Color.White,
     onSecondary = Color.White,
-    onBackground = taupe800,
-    onSurface = gray900.copy(alpha = 0.8f)
+    onBackground = textColor,
+    onSurface = textColor,
 )
 
 private val RallyColorPalette = darkColors(
@@ -50,10 +50,10 @@ fun UpmTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable ()
     }
 
     MaterialTheme(
-        colors = RallyColorPalette,
+        colors = colors,
         typography = Typography,
         shapes = Shapes,
-        content = content
+        content = content,
     )
 }
 

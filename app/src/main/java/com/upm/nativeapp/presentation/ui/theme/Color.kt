@@ -18,3 +18,13 @@ val gray800 = gray900.copy(alpha = 0.8f)
 
 val Green500 = Color(0xFF1EB980)
 val DarkBlue900 = Color(0xFF26282F)
+
+val primaryColor = Color(0xFF855cee);
+val primaryTextColor = Color(0xFF9068f5);
+val backgroundLightColor = Color(0xFFf4f5fa);
+val backgroundDarkColor = Color(0xFF27253b);
+val cardLightColor = Color(0xFFffffff);
+val cardDarkColor = Color(0xFF302e49);
+val dividerColor = Color.Gray;
+val textColor = Color(0xFF000000);
+val textLightColor = Color(0xFFFFFFFF);
