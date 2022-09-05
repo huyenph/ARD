@@ -1,4 +1,4 @@
-package com.upm.nativeapp.presentation.main.activity
+package com.upm.nativeapp.presentation
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Build
@@ -25,8 +25,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import com.upm.nativeapp.R
-import com.upm.nativeapp.presentation.main.viewmodel.MainViewModel
+import com.upm.nativeapp.presentation.graph.Main
+import com.upm.nativeapp.presentation.graph.UpmNavHost
+import com.upm.nativeapp.presentation.graph.upmScreens
 import com.upm.nativeapp.presentation.rally.RallyApp
 import com.upm.nativeapp.presentation.ui.theme.UpmTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,7 +43,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            RallyApp()
+//            RallyApp()
 //            UpmTheme {
 //                Surface(
 //                    modifier = Modifier.fillMaxSize(),
@@ -48,6 +52,14 @@ class MainActivity : ComponentActivity() {
 //                    WellnessScreen()
 //                }
 //            }
+            UpmTheme {
+                val navController = rememberNavController()
+                val currentBackStack by navController.currentBackStackEntryAsState()
+                val currentDestination = currentBackStack?.destination
+                val currentScreen =
+                    upmScreens.find { it.route == currentDestination?.route } ?: Main
+                UpmNavHost(navController = navController)
+            }
         }
     }
 }

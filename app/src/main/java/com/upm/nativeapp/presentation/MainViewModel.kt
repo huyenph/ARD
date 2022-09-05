@@ -1,6 +1,5 @@
-package com.upm.nativeapp.presentation.main.viewmodel
+package com.upm.nativeapp.presentation
 
-import com.upm.nativeapp.common.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
