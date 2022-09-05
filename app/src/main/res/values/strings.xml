@@ -39,4 +39,8 @@
     <string name="login">Login</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="or">or</string>
+    <string name="facebook_description">Login with Facebook</string>
+    <string name="google_description">Login with Google</string>
+    <string name="new_on_platform">New on our platform?</string>
+    <string name="register">Register</string>
 </resources>
