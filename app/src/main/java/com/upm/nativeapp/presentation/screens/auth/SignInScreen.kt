@@ -3,37 +3,30 @@ package com.upm.nativeapp.presentation.screens.auth
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Facebook
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.upm.nativeapp.R
 import com.upm.nativeapp.presentation.components.BaseScaffold
 import com.upm.nativeapp.presentation.components.UpmTextField
 import com.upm.nativeapp.presentation.screens.auth.components.AuthAppBar
+import com.upm.nativeapp.presentation.screens.auth.components.FormDivider
 import com.upm.nativeapp.presentation.screens.auth.components.SocialLogin
 import com.upm.nativeapp.presentation.ui.theme.UpmTheme
 import com.upm.nativeapp.presentation.ui.theme.backgroundLightColor
 import com.upm.nativeapp.presentation.ui.theme.primaryColor
 import com.upm.nativeapp.presentation.ui.theme.textColor
 
-
 @Composable
-fun SignInScreen() {
-    val configuration = LocalConfiguration.current
+fun SignInScreen(onRegisterClicked: (Int) -> Unit = {}) {
     var emailValue by remember { mutableStateOf(TextFieldValue("")) }
     var passwordValue by remember { mutableStateOf(TextFieldValue("")) }
     BaseScaffold(
@@ -52,7 +45,7 @@ fun SignInScreen() {
             )
             Text(
                 modifier = Modifier.padding(top = 8.dp),
-                text = stringResource(id = R.string.login_title),
+                text = stringResource(id = R.string.login_excerpt),
             )
             UpmTextField(
                 modifier = Modifier.padding(top = 10.dp, bottom = 5.dp),
@@ -81,7 +74,7 @@ fun SignInScreen() {
                     .fillMaxWidth(),
                 elevation = null,
                 colors = ButtonDefaults.buttonColors(backgroundColor = primaryColor),
-                onClick = { },
+                onClick = {},
             ) {
                 Text(
                     modifier = Modifier.padding(10.dp),
@@ -97,30 +90,9 @@ fun SignInScreen() {
                     spanStyle = SpanStyle(color = primaryColor, fontWeight = FontWeight.Bold),
                 ),
                 onClick = {},
-//                colors = ButtonDefaults.textButtonColors(contentColor = primaryColor)
             )
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceAround,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Divider(
-                    modifier = Modifier.width(configuration.screenWidthDp.dp / 3),
-                    thickness = 1.dp,
-                    color = Color.Gray,
-                )
-                Text(
-                    modifier = Modifier.padding(horizontal = 10.dp),
-                    text = stringResource(id = R.string.or)
-                )
-                Divider(
-                    modifier = Modifier.width(configuration.screenWidthDp.dp / 3),
-                    thickness = 1.dp,
-                    color = Color.Gray,
-                )
-            }
+            FormDivider()
             SocialLogin(modifier = Modifier.fillMaxWidth())
-//            ClickableText(text =, onClick =)
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -137,7 +109,7 @@ fun SignInScreen() {
                         stringResource(id = R.string.register),
                         spanStyle = SpanStyle(color = primaryColor, fontWeight = FontWeight.Bold),
                     ),
-                    onClick = {},
+                    onClick = onRegisterClicked,
                 )
             }
         }
@@ -148,6 +120,6 @@ fun SignInScreen() {
 @Composable
 fun OnSignInScreenPreview() {
     UpmTheme {
-        SignInScreen()
+        SignInScreen(onRegisterClicked = {})
     }
 }
