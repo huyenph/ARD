@@ -28,4 +28,15 @@
     <string name="bills">Bills</string>
     <string name="sort">Sort</string>
     <string name="see_all">SEE ALL</string>
+
+    <string name="welcome_upm">Welcome to UPM! 👋🏻</string>
+    <string name="login_title">Please login to your account and start the adventure</string>
+    <string name="default_placeholder" />
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="email_placeholder">Enter your email</string>
+    <string name="password_placeholder">Enter your password</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="or">or</string>
 </resources>

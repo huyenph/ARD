@@ -1,4 +1,4 @@
-package com.upm.nativeapp.presentation.main.activity
+package com.upm.nativeapp.presentation
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Build
@@ -26,7 +26,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.upm.nativeapp.R
-import com.upm.nativeapp.presentation.main.viewmodel.MainViewModel
 import com.upm.nativeapp.presentation.rally.RallyApp
 import com.upm.nativeapp.presentation.ui.theme.UpmTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -50,6 +49,11 @@ class MainActivity : ComponentActivity() {
 //            }
         }
     }
+}
+
+@Composable
+private fun UpmApp() {
+
 }
 
 @Composable

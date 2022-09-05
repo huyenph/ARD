@@ -5,6 +5,13 @@ import com.upm.nativeapp.data.remote.adapter.NetworkResponse
 import com.upm.nativeapp.data.remote.response.ErrorResponse
 import java.lang.reflect.Type
 
+interface ApiResponseListener {
+    fun onSuccess(code: Int, type: Type?, response: JsonObject)
+    fun onFailure(code: Int, errorResponse: ErrorResponse)
+    fun onNetworkError(code: Int)
+    fun onUnknownError(code: Int)
+}
+
 class ApiClient(private val responseListener: ApiResponseListener) {
     fun request(code: Int, type: Type?, response: NetworkResponse<JsonObject, ErrorResponse>) {
         when (response) {
@@ -20,12 +27,5 @@ class ApiClient(private val responseListener: ApiResponseListener) {
             is NetworkResponse.NetworkError -> responseListener.onNetworkError(response.code)
             is NetworkResponse.UnknownError -> responseListener.onUnknownError(response.code)
         }
-    }
-
-    interface ApiResponseListener {
-        fun onSuccess(code: Int, type: Type?, response: JsonObject)
-        fun onFailure(code: Int, errorResponse: ErrorResponse)
-        fun onNetworkError(code: Int)
-        fun onUnknownError(code: Int)
     }
 }

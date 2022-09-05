@@ -36,8 +36,8 @@ private val fontFamilyLato = FontFamily(
 val Typography = Typography(
     defaultFontFamily = fontFamilyLato,
     h1 = TextStyle(
-        fontFamily = fontFamilyKulim,
-        fontWeight = FontWeight.Light,
+        fontFamily = fontFamilyLato,
+        fontWeight = FontWeight.Bold,
         fontSize = 28.sp,
         letterSpacing = (1.15).sp
     ),
