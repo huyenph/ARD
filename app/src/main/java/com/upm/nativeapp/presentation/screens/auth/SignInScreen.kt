@@ -32,7 +32,7 @@ fun SignInScreen(onRegisterClicked: (Int) -> Unit = {}) {
     BaseScaffold(
         backgroundColor = backgroundLightColor,
         topBar = { AuthAppBar(onLanguageClicked = {}) }
-    ) { paddingValues ->
+    ) { _ ->
         Column(
             modifier = Modifier
                 .padding(16.dp)
