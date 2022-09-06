@@ -6,21 +6,18 @@ import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import com.google.accompanist.navigation.animation.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
-import com.upm.nativeapp.presentation.screens.auth.SignInScreen
-import com.upm.nativeapp.presentation.screens.auth.SignUpScreen
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.upm.nativeapp.presentation.screens.auth.AuthScreen
 import com.upm.nativeapp.presentation.screens.main.MainScreen
 import com.upm.nativeapp.presentation.screens.settings.SettingsScreen
 
+@ExperimentalPagerApi
 @ExperimentalAnimationApi
 @Composable
 fun UpmNavHost(modifier: Modifier = Modifier) {
@@ -31,7 +28,7 @@ fun UpmNavHost(modifier: Modifier = Modifier) {
         upmScreens.find { it.route == currentDestination?.route } ?: Main
     AnimatedNavHost(
         navController = navController,
-        startDestination = SignIn.route,
+        startDestination = Auth.route,
         modifier = modifier,
     ) {
         composable(
@@ -44,26 +41,13 @@ fun UpmNavHost(modifier: Modifier = Modifier) {
             MainScreen()
         }
         composable(
-            route = SignIn.route,
+            route = Auth.route,
             enterTransition = { enterTransition },
             exitTransition = { exitTransition },
             popEnterTransition = { popEnterTransition },
             popExitTransition = { popExitTransition },
         ) {
-            SignInScreen(onRegisterClicked = {
-                navController.navigateSingleTopTo(SignUp.route)
-            })
-        }
-        composable(
-            route = SignUp.route,
-            enterTransition = { enterTransition },
-            exitTransition = { exitTransition },
-            popEnterTransition = { popEnterTransition },
-            popExitTransition = { popExitTransition },
-        ) {
-            SignUpScreen(onLoginClicked = {
-                navController.navigateSingleTopTo(SignIn.route)
-            })
+            AuthScreen(navController = navController)
         }
         composable(
             route = Settings.route,

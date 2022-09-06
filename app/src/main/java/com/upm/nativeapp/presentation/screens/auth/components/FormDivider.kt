@@ -13,10 +13,10 @@ import androidx.compose.ui.unit.dp
 import com.upm.nativeapp.R
 
 @Composable
-fun FormDivider() {
+fun FormDivider(modifier: Modifier = Modifier) {
     val configuration = LocalConfiguration.current
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceAround,
         verticalAlignment = Alignment.CenterVertically
     ) {
