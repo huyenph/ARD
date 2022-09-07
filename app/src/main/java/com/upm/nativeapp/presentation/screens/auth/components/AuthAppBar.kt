@@ -18,7 +18,7 @@ fun AuthAppBar(onLanguageClicked: () -> Unit) {
         backgroundColor = backgroundLightColor,
         title = { Text(text = "") },
         actions = {
-            IconButton(onClick = {}) {
+            IconButton(onClick = onLanguageClicked) {
                 Icon(
                     imageVector = Icons.Outlined.Language,
                     tint = primaryColor,

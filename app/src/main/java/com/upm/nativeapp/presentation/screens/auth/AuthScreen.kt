@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
 
 @ExperimentalPagerApi
 @Composable
-fun AuthScreen(navController: NavHostController) {
+fun AuthScreen(navController: NavHostController, onLanguageClicked: () -> Unit) {
     val pagerState = rememberPagerState()
     val coroutineScope = rememberCoroutineScope()
     var pageIndex by rememberSaveable { mutableStateOf(0) }
@@ -29,7 +29,7 @@ fun AuthScreen(navController: NavHostController) {
 
     BaseScaffold(
         backgroundColor = backgroundLightColor,
-        topBar = { AuthAppBar(onLanguageClicked = {}) },
+        topBar = { AuthAppBar(onLanguageClicked = onLanguageClicked) },
     ) { _ ->
         HorizontalPager(
             count = 2,

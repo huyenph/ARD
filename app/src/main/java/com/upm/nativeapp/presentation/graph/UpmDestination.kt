@@ -22,4 +22,10 @@ object Settings : UpmDestination {
     override val route: String = "settings"
 }
 
+object Language: UpmDestination {
+    override val icon: ImageVector? = null
+    override val route: String = "language"
+
+}
+
 val upmScreens = listOf(Auth, Main, Settings)

@@ -13,14 +13,16 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.pager.ExperimentalPagerApi
+import com.upm.nativeapp.presentation.MainViewModel
 import com.upm.nativeapp.presentation.screens.auth.AuthScreen
 import com.upm.nativeapp.presentation.screens.main.MainScreen
+import com.upm.nativeapp.presentation.screens.settings.LanguageScreen
 import com.upm.nativeapp.presentation.screens.settings.SettingsScreen
 
 @ExperimentalPagerApi
 @ExperimentalAnimationApi
 @Composable
-fun UpmNavHost(modifier: Modifier = Modifier) {
+fun UpmNavHost(modifier: Modifier = Modifier, mainViewModel: MainViewModel) {
     val navController = rememberAnimatedNavController()
     val currentBackStack by navController.currentBackStackEntryAsState()
     val currentDestination = currentBackStack?.destination
@@ -47,7 +49,9 @@ fun UpmNavHost(modifier: Modifier = Modifier) {
             popEnterTransition = { popEnterTransition },
             popExitTransition = { popExitTransition },
         ) {
-            AuthScreen(navController = navController)
+            AuthScreen(navController = navController, onLanguageClicked = {
+                navController.navigateSingleTopTo(Language.route)
+            })
         }
         composable(
             route = Settings.route,
@@ -57,6 +61,15 @@ fun UpmNavHost(modifier: Modifier = Modifier) {
             popExitTransition = { popExitTransition },
         ) {
             SettingsScreen()
+        }
+        composable(
+            route = Language.route,
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition },
+            popEnterTransition = { popEnterTransition },
+            popExitTransition = { popExitTransition },
+        ) {
+            LanguageScreen(navController, mainViewModel)
         }
     }
 }

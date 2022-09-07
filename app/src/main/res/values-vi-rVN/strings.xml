@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UpmAndroid</string>
+    <string name="welcome_upm">Chào mừng đến với UPM 👋🏻</string>
+    <string name="adventure_start_here">Cuộc phiêu lưu bắt đầu từ đây 🚀</string>
+    <string name="login_excerpt">Đăng nhập vào tài khoản của bạn</string>
+    <string name="register_excerpt">Giúp quản lý cuộc sống của bạn dễ dàng và thú vị!</string>
+    <string name="default_placeholder" />
+    <string name="username">Tên tài khoản</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="username_placeholder">Nhập tên tài khoản</string>
+    <string name="email_placeholder">Nhập email</string>
+    <string name="password_placeholder">Nhập mật khẩu</string>
+    <string name="login">Đăng nhập</string>
+    <string name="register">Đăng ký</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="or">hoặc</string>
+    <string name="facebook_description">Đăng nhập với Facebook</string>
+    <string name="google_description">Đăng nhập với Google</string>
+    <string name="new_on_platform">Bạn chưa có tài khoản?</string>
+    <string name="i_agree_to">Tôi đồng ý với</string>
+    <string name="privacy_policy">Chính sách &#38; điều khoản bảo mật</string>
+    <string name="already_have_account">Bạn đã có tài khoản?</string>
+    <string name="login_instead">Đăng nhập</string>
+    <string name="language">Ngôn ngữ</string>
+</resources>
