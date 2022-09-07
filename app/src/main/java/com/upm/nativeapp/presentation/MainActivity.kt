@@ -7,6 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -21,20 +22,22 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.pager.ExperimentalPagerApi
 import com.upm.nativeapp.R
-import com.upm.nativeapp.presentation.graph.Main
+import com.upm.nativeapp.common.extensions.loadJsonFromAssets
+import com.upm.nativeapp.common.extensions.setLanguage
 import com.upm.nativeapp.presentation.graph.UpmNavHost
-import com.upm.nativeapp.presentation.graph.upmScreens
-import com.upm.nativeapp.presentation.rally.RallyApp
 import com.upm.nativeapp.presentation.ui.theme.UpmTheme
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
+@ExperimentalAnimationApi
+@ExperimentalPagerApi
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val mainVM: MainViewModel by viewModels()
@@ -53,12 +56,8 @@ class MainActivity : ComponentActivity() {
 //                }
 //            }
             UpmTheme {
-                val navController = rememberNavController()
-                val currentBackStack by navController.currentBackStackEntryAsState()
-                val currentDestination = currentBackStack?.destination
-                val currentScreen =
-                    upmScreens.find { it.route == currentDestination?.route } ?: Main
-                UpmNavHost(navController = navController)
+                setLanguage(LocalContext.current, "en")
+                UpmNavHost(mainViewModel = mainVM)
             }
         }
     }

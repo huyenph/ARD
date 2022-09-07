@@ -29,7 +29,10 @@
     <string name="sort">Sort</string>
     <string name="see_all">SEE ALL</string>
 
-    <string name="welcome_upm">Welcome to UPM! 👋🏻</string>
+    <string name="app_navigation_description">Navigation icon description</string>
+    <string name="app_actions_description">Action icon description</string>
+
+    <string name="welcome_upm">Welcome to UPM 👋🏻</string>
     <string name="adventure_start_here">Adventure starts here 🚀</string>
     <string name="login_excerpt">Please login to your account and start the adventure</string>
     <string name="register_excerpt">Make your app management easy and fun!</string>
@@ -51,4 +54,5 @@
     <string name="privacy_policy">privacy policy &#38; terms</string>
     <string name="already_have_account">Already have an account?</string>
     <string name="login_instead">Login instead</string>
+    <string name="language">Language</string>
 </resources>
