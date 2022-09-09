@@ -1,10 +1,17 @@
 package com.upm.nativeapp.data.local.storage
 
 import android.content.Context
+import com.google.gson.Gson
+import com.upm.nativeapp.di.GsonBuilderLenient
+import com.upm.nativeapp.domain.model.BaseModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import java.lang.reflect.Type
 import javax.inject.Inject
 
-class SharedPreferencesStorage @Inject constructor(@ApplicationContext context: Context): Storage {
+class SharedPreferencesStorage @Inject constructor(
+    @ApplicationContext context: Context,
+    @GsonBuilderLenient private val gson: Gson,
+) : Storage {
     private val _sharedPrefs = context.getSharedPreferences("Storage", Context.MODE_PRIVATE)
 
     override fun setString(key: String, value: String) = with(_sharedPrefs.edit()) {
@@ -41,4 +48,15 @@ class SharedPreferencesStorage @Inject constructor(@ApplicationContext context: 
     }
 
     override fun getBoolean(key: String): Boolean = _sharedPrefs.getBoolean(key, false)
+
+    override fun setObject(key: String, value: BaseModel) = with(_sharedPrefs.edit()) {
+        val json = gson.toJson(value)
+        putString(key, json)
+        apply()
+    }
+
+    override fun getObject(key: String, type: Type): BaseModel {
+        val data = _sharedPrefs.getString(key, "")
+        return gson.fromJson(data, type)
+    }
 }

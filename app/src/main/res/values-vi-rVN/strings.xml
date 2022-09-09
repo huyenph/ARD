@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">UpmAndroid</string>
     <string name="welcome_upm">Chào mừng đến với UPM 👋🏻</string>
-    <string name="adventure_start_here">Cuộc phiêu lưu bắt đầu từ đây 🚀</string>
+    <string name="adventure_start_here">Tạo tài khoản của bạn 🚀</string>
     <string name="login_excerpt">Đăng nhập vào tài khoản của bạn</string>
     <string name="register_excerpt">Giúp quản lý cuộc sống của bạn dễ dàng và thú vị!</string>
     <string name="default_placeholder" />
