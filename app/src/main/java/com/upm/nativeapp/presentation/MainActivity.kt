@@ -22,19 +22,17 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.upm.nativeapp.R
-import com.upm.nativeapp.common.extensions.loadJsonFromAssets
 import com.upm.nativeapp.common.extensions.setLanguage
+import com.upm.nativeapp.domain.model.AppConfigType
 import com.upm.nativeapp.presentation.graph.UpmNavHost
 import com.upm.nativeapp.presentation.ui.theme.UpmTheme
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 @ExperimentalAnimationApi
 @ExperimentalPagerApi
@@ -56,7 +54,15 @@ class MainActivity : ComponentActivity() {
 //                }
 //            }
             UpmTheme {
-                setLanguage(LocalContext.current, "en")
+//                mainVM.appLocale.observe(this) {
+//                    setLanguage(this, it ?: "en")
+//                }
+                mainVM.appConfig.observe(this) {
+                    when (it.configType) {
+                        AppConfigType.LANGUAGE -> setLanguage(this, it.language.locale)
+                        else -> {}
+                    }
+                }
                 UpmNavHost(mainViewModel = mainVM)
             }
         }

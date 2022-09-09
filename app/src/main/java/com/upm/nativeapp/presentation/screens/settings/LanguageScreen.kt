@@ -37,13 +37,18 @@ fun LanguageScreen(navController: NavHostController? = null, mainViewModel: Main
                         )
                     }
                 },
-                onNavIconClicked = {navController?.popBackStack()}
+                onNavIconClicked = { navController?.popBackStack() }
             )
         }
     ) { _ ->
         LazyColumn(modifier = Modifier) {
             items(items = languages, key = { language -> language.locale }) { language ->
-                LanguageItem(language = language, onSelected = { language -> })
+                LanguageItem(
+                    language = language,
+                    onSelected = { selectedLanguage ->
+                        mainViewModel.onLanguageChange(selectedLanguage)
+                        navController?.popBackStack()
+                    })
                 Divider(modifier = Modifier.padding(horizontal = 16.dp), thickness = 0.5.dp)
             }
         }
