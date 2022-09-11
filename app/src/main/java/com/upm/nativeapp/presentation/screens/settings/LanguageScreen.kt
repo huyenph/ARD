@@ -16,6 +16,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.upm.nativeapp.R
+import com.upm.nativeapp.data.local.storage.SharedPreferencesStorage
+import com.upm.nativeapp.data.local.storage.Storage
 import com.upm.nativeapp.domain.model.LanguageModel
 import com.upm.nativeapp.presentation.MainViewModel
 import com.upm.nativeapp.presentation.components.BaseScaffold
@@ -45,6 +47,7 @@ fun LanguageScreen(navController: NavHostController? = null, mainViewModel: Main
             items(items = languages, key = { language -> language.locale }) { language ->
                 LanguageItem(
                     language = language,
+                    isChecked = mainViewModel.appConfig.value?.language?.locale == language.locale,
                     onSelected = { selectedLanguage ->
                         mainViewModel.onLanguageChange(selectedLanguage)
                         navController?.popBackStack()
@@ -57,12 +60,21 @@ fun LanguageScreen(navController: NavHostController? = null, mainViewModel: Main
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-private fun LanguageItem(language: LanguageModel, onSelected: (LanguageModel) -> Unit) {
+private fun LanguageItem(
+    language: LanguageModel,
+    isChecked: Boolean,
+    onSelected: (LanguageModel) -> Unit
+) {
     ListItem(
         modifier = Modifier.clickable(onClick = { onSelected(language) }),
         text = { Text(text = language.language) },
         secondaryText = { Text(text = language.description) },
-        trailing = { Icon(imageVector = Icons.Outlined.Check, contentDescription = null) }
+        trailing = {
+            if (isChecked) Icon(
+                imageVector = Icons.Outlined.Check,
+                contentDescription = null
+            )
+        }
     )
 }
 
@@ -70,6 +82,6 @@ private fun LanguageItem(language: LanguageModel, onSelected: (LanguageModel) ->
 @Composable
 private fun OnLanguageScreenPreview() {
     UpmTheme {
-        LanguageScreen(mainViewModel = MainViewModel())
+        LanguageScreen(mainViewModel = MainViewModel(null))
     }
 }

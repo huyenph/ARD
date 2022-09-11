@@ -1,11 +1,17 @@
 package com.upm.nativeapp.domain.model
 
-enum class AppConfigType { LANGUAGE, THEME }
+enum class AppConfigType { DEFAULT, LANGUAGE, THEME }
 
-data class AppConfigModel(var language: LanguageModel, var configType: AppConfigType) : BaseModel()
+enum class AppThemingType { LIGHT, DARK }
+
+data class AppConfigModel(
+    var language: LanguageModel = LanguageModel(),
+    var appThemingType: AppThemingType = AppThemingType.LIGHT,
+    var configType: AppConfigType = AppConfigType.DEFAULT
+) : BaseModel()
 
 data class LanguageModel(
-    val language: String,
-    val description: String,
-    val locale: String,
+    val language: String = "English",
+    val description: String = "English",
+    val locale: String = "en",
 ) : BaseModel()
