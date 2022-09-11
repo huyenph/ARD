@@ -16,8 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 open class BaseViewModel @Inject constructor() : ViewModel(), ApiResponseListener {
-    @Inject
-    lateinit var storage: Storage
+//    @Inject
+//    lateinit var storage: Storage
 
     @Inject
     @GsonBuilderLenient
