@@ -55,8 +55,11 @@ class SharedPreferencesStorage @Inject constructor(
         apply()
     }
 
-    override fun getObject(key: String, type: Type): BaseModel {
+    override fun getObject(key: String, type: Type): BaseModel? {
         val data = _sharedPrefs.getString(key, "")
-        return gson.fromJson(data, type)
+        if(data != null && data.isNotEmpty()) {
+            return gson.fromJson(data, type)
+        }
+        return null
     }
 }

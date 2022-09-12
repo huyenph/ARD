@@ -15,5 +15,5 @@ interface Storage {
     fun setBoolean(key: String, value: Boolean)
     fun getBoolean(key: String): Boolean
     fun setObject(key: String, value: BaseModel)
-    fun getObject(key: String, type: Type): BaseModel
+    fun getObject(key: String, type: Type): BaseModel?
 }

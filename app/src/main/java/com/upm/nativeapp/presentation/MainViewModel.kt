@@ -15,11 +15,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(storage: Storage?) : BaseViewModel() {
-    private val _appLocale: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
-
+class MainViewModel @Inject constructor(private val storage: Storage?) : BaseViewModel() {
     private val _appConfig: MutableLiveData<AppConfigModel> by lazy {
         MutableLiveData<AppConfigModel>()
     }
@@ -27,16 +23,10 @@ class MainViewModel @Inject constructor(storage: Storage?) : BaseViewModel() {
         get() = _appConfig
 
     init {
-        val defaultConfig = storage?.getObject(
-            key = PREFS_APP_CONFIGS,
-            type = object : TypeToken<AppConfigModel>() {}.type
-        )
-        _appConfig.value =
-            if (defaultConfig != null) defaultConfig as AppConfigModel else AppConfigModel()
+        getDefaultConfig()
     }
 
     fun fetchLanguages(context: Context): List<LanguageModel> {
-
         var languages: List<LanguageModel> = ArrayList<LanguageModel>()
         launchDataLoad {
             viewModelScope.launch {
@@ -54,8 +44,18 @@ class MainViewModel @Inject constructor(storage: Storage?) : BaseViewModel() {
     }
 
     fun onLanguageChange(language: LanguageModel) {
-        _appLocale.value = language.locale
         _appConfig.value!!.configType = AppConfigType.LANGUAGE
         _appConfig.value!!.language = language
+        storage?.setObject(PREFS_APP_CONFIGS, _appConfig.value!!)
+        getDefaultConfig()
+    }
+
+    private fun getDefaultConfig() {
+        val defaultConfig = storage?.getObject(
+            key = PREFS_APP_CONFIGS,
+            type = object : TypeToken<AppConfigModel>() {}.type
+        )
+        _appConfig.value =
+            if (defaultConfig != null) defaultConfig as AppConfigModel else AppConfigModel()
     }
 }
