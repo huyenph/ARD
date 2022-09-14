@@ -55,4 +55,7 @@
     <string name="already_have_account">Already have an account?</string>
     <string name="login_instead">Login instead</string>
     <string name="language">Language</string>
+    <string name="event">Event</string>
+    <string name="notification">Notification</string>
+    <string name="settings">Settings</string>
 </resources>

@@ -23,7 +23,7 @@ import com.upm.nativeapp.presentation.ui.theme.primaryColor
 import com.upm.nativeapp.presentation.ui.theme.textColor
 
 @Composable
-fun SignInForm(onRegisterClicked: () -> Unit = {}) {
+fun SignInForm(onSignIn: () -> Unit = {}, onRegisterClicked: () -> Unit = {}) {
     var emailValue by remember { mutableStateOf(TextFieldValue("")) }
     var passwordValue by remember { mutableStateOf(TextFieldValue("")) }
     Column(
@@ -67,7 +67,7 @@ fun SignInForm(onRegisterClicked: () -> Unit = {}) {
                 .fillMaxWidth(),
             elevation = null,
             colors = ButtonDefaults.buttonColors(backgroundColor = primaryColor),
-            onClick = {},
+            onClick = onSignIn,
         ) {
             Text(
                 modifier = Modifier.padding(10.dp),

@@ -24,4 +24,7 @@
     <string name="already_have_account">Bạn đã có tài khoản?</string>
     <string name="login_instead">Đăng nhập</string>
     <string name="language">Ngôn ngữ</string>
+    <string name="event">Sự kiện</string>
+    <string name="notification">Thông báo</string>
+    <string name="settings">Cài đặt</string>
 </resources>

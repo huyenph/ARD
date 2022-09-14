@@ -10,6 +10,10 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.upm.nativeapp.presentation.components.BaseScaffold
+import com.upm.nativeapp.presentation.graph.Auth
+import com.upm.nativeapp.presentation.graph.Main
+import com.upm.nativeapp.presentation.graph.UpmDestination
+import com.upm.nativeapp.presentation.rally.navigateSingleTopTo
 import com.upm.nativeapp.presentation.screens.auth.components.AuthAppBar
 import com.upm.nativeapp.presentation.ui.theme.backgroundLightColor
 import kotlinx.coroutines.launch
@@ -37,6 +41,13 @@ fun AuthScreen(navController: NavHostController, onLanguageClicked: () -> Unit) 
         ) { page ->
             when (page) {
                 0 -> SignInForm(
+                    onSignIn = {
+                        navController.navigate(Main.route) {
+                            popUpTo(Auth.route) {
+                                inclusive = true
+                            }
+                        }
+                    },
                     onRegisterClicked = {
                         coroutineScope.launch {
                             pageIndex = 1
@@ -45,6 +56,13 @@ fun AuthScreen(navController: NavHostController, onLanguageClicked: () -> Unit) 
                     }
                 )
                 else -> SignUpForm(
+                    onSignUp = {
+                        navController.navigate(Main.route) {
+                            popUpTo(Auth.route) {
+                                inclusive = true
+                            }
+                        }
+                    },
                     onLoginClicked = {
                         coroutineScope.launch {
                             pageIndex = 0
