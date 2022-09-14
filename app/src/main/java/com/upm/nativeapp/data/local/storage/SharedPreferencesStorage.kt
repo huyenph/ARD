@@ -7,7 +7,9 @@ import com.upm.nativeapp.domain.model.BaseModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.lang.reflect.Type
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class SharedPreferencesStorage @Inject constructor(
     @ApplicationContext context: Context,
     @GsonBuilderLenient private val gson: Gson,

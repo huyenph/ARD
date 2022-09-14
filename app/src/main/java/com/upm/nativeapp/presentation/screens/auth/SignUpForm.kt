@@ -23,7 +23,7 @@ import com.upm.nativeapp.presentation.ui.theme.primaryColor
 import com.upm.nativeapp.presentation.ui.theme.textColor
 
 @Composable
-fun SignUpForm(onLoginClicked: () -> Unit = {}) {
+fun SignUpForm(onSignUp: () -> Unit = {}, onLoginClicked: () -> Unit = {}) {
     var usernameValue by remember { mutableStateOf(TextFieldValue("")) }
     var emailValue by remember { mutableStateOf(TextFieldValue("")) }
     var passwordValue by remember { mutableStateOf(TextFieldValue("")) }
@@ -78,7 +78,7 @@ fun SignUpForm(onLoginClicked: () -> Unit = {}) {
                 .fillMaxWidth(),
             elevation = null,
             colors = ButtonDefaults.buttonColors(backgroundColor = primaryColor),
-            onClick = { },
+            onClick = onSignUp,
         ) {
             Text(
                 modifier = Modifier.padding(10.dp),
