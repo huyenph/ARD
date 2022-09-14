@@ -1,13 +1,12 @@
 package com.upm.nativeapp.presentation.screens.main.components
 
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import com.upm.nativeapp.presentation.screens.main.NavigationItem
 import com.upm.nativeapp.presentation.ui.theme.UpmTheme
 
@@ -16,9 +15,11 @@ fun BottomNavigationBar(navController: NavHostController, items: List<Navigation
     BottomNavigation(
         backgroundColor = MaterialTheme.colors.background,
     ) {
+        val navBackStackEntry by navController.currentBackStackEntryAsState()
+        val currentRoute = navBackStackEntry?.destination?.route
         items.forEach { item ->
             BottomNavigationItem(
-                selected = false,
+                selected = currentRoute == item.route,
                 onClick = {
                     navController.navigate(item.route) {
                         navController.graph.startDestinationRoute?.let { route ->
@@ -35,7 +36,8 @@ fun BottomNavigationBar(navController: NavHostController, items: List<Navigation
                         imageVector = item.icon,
                         contentDescription = stringResource(id = item.title)
                     )
-                }
+                },
+                label = { Text(text = stringResource(id = item.title)) }
             )
         }
     }
