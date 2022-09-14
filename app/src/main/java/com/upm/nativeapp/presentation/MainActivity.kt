@@ -26,6 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.upm.nativeapp.R
 import com.upm.nativeapp.common.extensions.setLanguage
@@ -43,6 +44,7 @@ class MainActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.background_dark)
         setContent {
 //            RallyApp()
 //            UpmTheme {
@@ -53,7 +55,7 @@ class MainActivity : ComponentActivity() {
 //                    WellnessScreen()
 //                }
 //            }
-            UpmTheme {
+            UpmTheme(darkTheme = true) {
 //                mainVM.appLocale.observe(this) {
 //                    setLanguage(this, it ?: "en")
 //                }

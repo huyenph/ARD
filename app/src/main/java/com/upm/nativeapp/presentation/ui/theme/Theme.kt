@@ -15,18 +15,18 @@ private val DarkColorPalette = darkColors(
     primary = primaryColor,
     secondary = rust300,
     background = backgroundDarkColor,
-    surface = backgroundDarkColor,
+    surface = cardDarkColor,
     onPrimary = gray900,
     onSecondary = gray900,
     onBackground = textLightColor,
-    onSurface = textLightColor
+    onSurface = textLightColor,
 )
 
 private val LightColorPalette = lightColors(
     primary = primaryColor,
     secondary = rust600,
     background = backgroundLightColor,
-    surface = backgroundLightColor,
+    surface = cardLightColor,
     onPrimary = Color.White,
     onSecondary = Color.White,
     onBackground = textColor,
