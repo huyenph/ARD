@@ -27,7 +27,7 @@ class MainViewModel @Inject constructor(private val storage: Storage?) : BaseVie
     }
 
     fun fetchLanguages(context: Context): List<LanguageModel> {
-        var languages: List<LanguageModel> = ArrayList<LanguageModel>()
+        var languages: List<LanguageModel> = ArrayList()
         launchDataLoad {
             viewModelScope.launch {
                 val languagesJson = loadJsonFromAssets(

@@ -3,7 +3,7 @@ package com.upm.nativeapp.di
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.upm.nativeapp.BuildConfig
-import com.upm.nativeapp.data.local.storage.SharedPreferencesStorage
+import com.upm.nativeapp.data.local.storage.Storage
 import com.upm.nativeapp.data.remote.ApiService
 import com.upm.nativeapp.data.remote.adapter.NetworkResponseAdapterFactory
 import com.upm.nativeapp.data.remote.helper.HttpInterceptor
@@ -71,9 +71,7 @@ object NetworkModule {
 
     @AuthInterceptorOkHttpClient
     @Provides
-    fun provideAuthInterceptorOkHttpClient(
-        sharedPrefStorage: SharedPreferencesStorage
-    ): OkHttpClient = OkHttpClient.Builder()
+    fun provideAuthInterceptorOkHttpClient(storage: Storage): OkHttpClient = OkHttpClient.Builder()
         .connectTimeout(CONNECT_TIMEOUT, TimeUnit.MINUTES)
         .readTimeout(READ_TIMEOUT, TimeUnit.MINUTES)
         .writeTimeout(WRITE_TIMEOUT, TimeUnit.MINUTES)
@@ -83,7 +81,7 @@ object NetworkModule {
             val request: Request = chain.request().newBuilder()
                 .addHeader("Content-Type", "application/json")
                 .addHeader("Accept", "*/*")
-                .addHeader("Authorization", "Bearer ${sharedPrefStorage.getString("token")}")
+                .addHeader("Authorization", "Bearer ${storage.getString("token")}")
                 .build()
             chain.proceed(request)
         }

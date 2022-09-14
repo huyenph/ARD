@@ -13,10 +13,3 @@ abstract class StorageModule {
     @Binds
     abstract fun provideStorage(sharedPreferences: SharedPreferencesStorage): Storage
 }
-
-//object StorageModule {
-//    @Provides
-//    @Singleton
-//    fun provideStorage(@ApplicationContext context: Context) =
-//        context.getSharedPreferences("Storage", Context.MODE_PRIVATE)!!
-//}
