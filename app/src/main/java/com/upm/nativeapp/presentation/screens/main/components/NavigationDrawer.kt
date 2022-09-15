@@ -81,28 +81,6 @@ fun DrawerItem(
         },
         text = { Text(stringResource(id = item.title)) },
     )
-//    Row(
-//        verticalAlignment = Alignment.CenterVertically,
-//        modifier = Modifier
-//            .fillMaxWidth()
-//            .clickable(onClick = { onItemClick(item) })
-//            .height(45.dp)
-//            .padding(start = 10.dp)
-//            .border(width = 0.dp, color = Color.Transparent, shape = RoundedCornerShape(5.dp))
-//    ) {
-//        Icon(
-//            imageVector = item.icon,
-//            contentDescription = stringResource(id = item.title),
-//            modifier = Modifier
-//                .height(35.dp)
-//                .width(35.dp)
-//        )
-//        Spacer(modifier = Modifier.width(7.dp))
-//        Text(
-//            text = stringResource(id = item.title),
-//            fontSize = 18.sp,
-//        )
-//    }
 }
 
 @Preview(showBackground = true)

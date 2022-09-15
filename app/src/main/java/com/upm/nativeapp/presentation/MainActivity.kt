@@ -3,6 +3,7 @@ package com.upm.nativeapp.presentation
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -44,7 +45,8 @@ class MainActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.statusBarColor = ContextCompat.getColor(this, R.color.background_dark)
+//        window.statusBarColor = ContextCompat.getColor(this, R.color.background_light)
+//        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         setContent {
 //            RallyApp()
 //            UpmTheme {
@@ -55,7 +57,7 @@ class MainActivity : ComponentActivity() {
 //                    WellnessScreen()
 //                }
 //            }
-            UpmTheme(darkTheme = true) {
+            UpmTheme(darkTheme = false) {
 //                mainVM.appLocale.observe(this) {
 //                    setLanguage(this, it ?: "en")
 //                }
