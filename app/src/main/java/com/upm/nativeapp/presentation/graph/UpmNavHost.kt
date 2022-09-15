@@ -29,6 +29,7 @@ fun UpmNavHost(modifier: Modifier = Modifier, mainViewModel: MainViewModel) {
     val currentDestination = currentBackStack?.destination
     val currentScreen =
         upmScreens.find { it.route == currentDestination?.route } ?: Main
+
     AnimatedNavHost(
         navController = navController,
         startDestination = Auth.route,

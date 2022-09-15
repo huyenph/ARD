@@ -116,7 +116,7 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
     implementation("androidx.multidex:multidex:2.0.1")
 
     // Jetpack Compose
@@ -140,7 +140,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.2.1"
 
-    def lifecycle_version = "2.6.0-alpha01"
+    def lifecycle_version = "2.6.0-alpha02"
     def arch_version = "2.1.0"
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
@@ -165,7 +165,7 @@ dependencies {
     // optional - Test helpers for Lifecycle runtime
     testImplementation("androidx.lifecycle:lifecycle-runtime-testing:$lifecycle_version")
 
-    def nav_version = "2.5.1"
+    def nav_version = "2.5.2"
     // Kotlin
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")

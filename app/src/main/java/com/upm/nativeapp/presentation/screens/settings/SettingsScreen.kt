@@ -51,7 +51,7 @@ fun SettingsScreen(
         )
         OptionField(
             onItemClick = {},
-            onCheckedChange = { mainViewModel.onThemeChang(it) },
+            onCheckedChange = { mainViewModel.onThemeChange(it) },
             icon = Icons.Outlined.DarkMode,
             title = R.string.dark_mode,
             value = appConfig.value?.appThemingType == AppThemingType.DARK,
