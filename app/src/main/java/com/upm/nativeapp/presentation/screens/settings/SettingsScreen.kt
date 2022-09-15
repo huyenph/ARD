@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import com.upm.nativeapp.R
+import com.upm.nativeapp.domain.model.AppThemingType
 import com.upm.nativeapp.domain.model.LanguageModel
 import com.upm.nativeapp.presentation.MainViewModel
 import com.upm.nativeapp.presentation.components.OptionField
@@ -26,7 +27,7 @@ fun SettingsScreen(
     mainViewModel: MainViewModel,
 ) {
     val appConfig = mainViewModel.appConfig
-    var isDarkMode by rememberSaveable { mutableStateOf(false) }
+//    var isDarkMode by rememberSaveable { mutableStateOf(false) }
     Column(
         modifier = modifier
             .fillMaxHeight()
@@ -50,10 +51,10 @@ fun SettingsScreen(
         )
         OptionField(
             onItemClick = {},
-            onCheckedChange = { isDarkMode = it },
+            onCheckedChange = { mainViewModel.onThemeChang(it) },
             icon = Icons.Outlined.DarkMode,
             title = R.string.dark_mode,
-            value = isDarkMode,
+            value = appConfig.value?.appThemingType == AppThemingType.DARK,
         )
         OptionField(
             onItemClick = {},

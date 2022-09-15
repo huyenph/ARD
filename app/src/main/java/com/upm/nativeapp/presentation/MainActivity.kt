@@ -32,6 +32,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.upm.nativeapp.R
 import com.upm.nativeapp.common.extensions.setLanguage
 import com.upm.nativeapp.domain.model.AppConfigType
+import com.upm.nativeapp.domain.model.AppThemingType
 import com.upm.nativeapp.presentation.graph.UpmNavHost
 import com.upm.nativeapp.presentation.ui.theme.UpmTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,31 +46,39 @@ class MainActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        window.statusBarColor = ContextCompat.getColor(this, R.color.background_light)
-//        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        setContent {
-//            RallyApp()
-//            UpmTheme {
-//                Surface(
-//                    modifier = Modifier.fillMaxSize(),
-//                    color = MaterialTheme.colors.background
-//                ) {
-//                    WellnessScreen()
-//                }
-//            }
-            UpmTheme(darkTheme = false) {
-//                mainVM.appLocale.observe(this) {
-//                    setLanguage(this, it ?: "en")
-//                }
-                mainVM.appConfig.observe(this) {
-                    when (it.configType) {
-                        AppConfigType.LANGUAGE -> setLanguage(this, it.language.locale)
-                        else -> {}
-                    }
+        mainVM.appConfig.observe(this) {
+            if (it.configType == AppConfigType.LANGUAGE) {
+                setLanguage(this, it.language.locale)
+            }
+            when (it.configType) {
+                AppConfigType.LANGUAGE -> {
+                    setLanguage(this, it.language.locale)
                 }
-                UpmNavHost(mainViewModel = mainVM)
+                AppConfigType.THEME -> {
+                    window.statusBarColor = ContextCompat.getColor(
+                        this,
+                        if (it?.appThemingType == AppThemingType.DARK) R.color.background_dark
+                        else R.color.background_light
+                    )
+                    window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                }
+                else -> {
+                    setLanguage(this, it.language.locale)
+                    window.statusBarColor = ContextCompat.getColor(
+                        this,
+                        if (it?.appThemingType == AppThemingType.DARK) R.color.background_dark
+                        else R.color.background_light
+                    )
+                    window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                }
+            }
+            setContent {
+                UpmTheme(darkTheme = it?.appThemingType == AppThemingType.DARK) {
+                    UpmNavHost(mainViewModel = mainVM)
+                }
             }
         }
+
     }
 }
 

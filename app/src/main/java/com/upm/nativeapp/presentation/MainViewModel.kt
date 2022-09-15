@@ -9,6 +9,7 @@ import com.upm.nativeapp.common.extensions.loadJsonFromAssets
 import com.upm.nativeapp.data.local.storage.Storage
 import com.upm.nativeapp.domain.model.AppConfigModel
 import com.upm.nativeapp.domain.model.AppConfigType
+import com.upm.nativeapp.domain.model.AppThemingType
 import com.upm.nativeapp.domain.model.LanguageModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -46,6 +47,14 @@ class MainViewModel @Inject constructor(private val storage: Storage?) : BaseVie
     fun onLanguageChange(language: LanguageModel) {
         _appConfig.value!!.configType = AppConfigType.LANGUAGE
         _appConfig.value!!.language = language
+        storage?.setObject(PREFS_APP_CONFIGS, _appConfig.value!!)
+        getDefaultConfig()
+    }
+
+    fun onThemeChang(isDarkMode: Boolean) {
+        _appConfig.value!!.configType = AppConfigType.THEME
+        _appConfig.value!!.appThemingType =
+            if (isDarkMode) AppThemingType.DARK else AppThemingType.LIGHT
         storage?.setObject(PREFS_APP_CONFIGS, _appConfig.value!!)
         getDefaultConfig()
     }
