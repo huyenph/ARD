@@ -18,6 +18,7 @@ import com.upm.nativeapp.presentation.screens.auth.AuthScreen
 import com.upm.nativeapp.presentation.screens.main.MainScreen
 import com.upm.nativeapp.presentation.screens.settings.LanguageScreen
 import com.upm.nativeapp.presentation.screens.settings.SettingsScreen
+import javax.inject.Inject
 
 @ExperimentalPagerApi
 @ExperimentalAnimationApi
@@ -28,6 +29,7 @@ fun UpmNavHost(modifier: Modifier = Modifier, mainViewModel: MainViewModel) {
     val currentDestination = currentBackStack?.destination
     val currentScreen =
         upmScreens.find { it.route == currentDestination?.route } ?: Main
+
     AnimatedNavHost(
         navController = navController,
         startDestination = Auth.route,
@@ -40,7 +42,7 @@ fun UpmNavHost(modifier: Modifier = Modifier, mainViewModel: MainViewModel) {
             popEnterTransition = { popEnterTransition },
             popExitTransition = { popExitTransition },
         ) {
-            MainScreen()
+            MainScreen(appNavController = navController, mainViewModel = mainViewModel)
         }
         composable(
             route = Auth.route,
@@ -53,15 +55,15 @@ fun UpmNavHost(modifier: Modifier = Modifier, mainViewModel: MainViewModel) {
                 navController.navigateSingleTopTo(Language.route)
             })
         }
-        composable(
-            route = Settings.route,
-            enterTransition = { enterTransition },
-            exitTransition = { exitTransition },
-            popEnterTransition = { popEnterTransition },
-            popExitTransition = { popExitTransition },
-        ) {
-            SettingsScreen()
-        }
+//        composable(
+//            route = Settings.route,
+//            enterTransition = { enterTransition },
+//            exitTransition = { exitTransition },
+//            popEnterTransition = { popEnterTransition },
+//            popExitTransition = { popExitTransition },
+//        ) {
+//            SettingsScreen()
+//        }
         composable(
             route = Language.route,
             enterTransition = { enterTransition },

@@ -1,12 +1,10 @@
 package com.upm.nativeapp.presentation
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.annotation.RequiresApi
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
@@ -27,13 +25,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.upm.nativeapp.R
 import com.upm.nativeapp.common.extensions.setLanguage
 import com.upm.nativeapp.domain.model.AppConfigType
+import com.upm.nativeapp.domain.model.AppThemingType
 import com.upm.nativeapp.presentation.graph.UpmNavHost
 import com.upm.nativeapp.presentation.ui.theme.UpmTheme
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @ExperimentalAnimationApi
 @ExperimentalPagerApi
@@ -41,30 +44,27 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val mainVM: MainViewModel by viewModels()
 
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.statusBarColor = ContextCompat.getColor(this, R.color.background_dark)
-        setContent {
-//            RallyApp()
-//            UpmTheme {
-//                Surface(
-//                    modifier = Modifier.fillMaxSize(),
-//                    color = MaterialTheme.colors.background
-//                ) {
-//                    WellnessScreen()
-//                }
-//            }
-            UpmTheme(darkTheme = true) {
-//                mainVM.appLocale.observe(this) {
-//                    setLanguage(this, it ?: "en")
-//                }
-                mainVM.appConfig.observe(this) {
-                    when (it.configType) {
-                        AppConfigType.LANGUAGE -> setLanguage(this, it.language.locale)
-                        else -> {}
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                mainVM.appConfig.collect() {
+                    if (it.configType == AppConfigType.LANGUAGE || it.configType == AppConfigType.DEFAULT) {
+                        setLanguage(this@MainActivity, it.language.locale)
+                    }
+                    if (it.configType == AppConfigType.THEME || it.configType == AppConfigType.DEFAULT) {
+                        window.statusBarColor = ContextCompat.getColor(
+                            applicationContext,
+                            if (it.appThemingType == AppThemingType.DARK) R.color.background_dark
+                            else R.color.background_light
+                        )
                     }
                 }
+            }
+        }
+        setContent {
+            val themeState = mainVM.appConfig.collectAsState().value.appThemingType
+            UpmTheme(darkTheme = themeState == AppThemingType.DARK) {
                 UpmNavHost(mainViewModel = mainVM)
             }
         }
@@ -158,35 +158,6 @@ private fun CardContent(name: String) {
             )
         }
     }
-
-//    val extraPadding by animateDpAsState(
-//        if (expanded) 48.dp else 0.dp,
-//        animationSpec = spring(
-//            dampingRatio = Spring.DampingRatioMediumBouncy,
-//            stiffness = Spring.StiffnessLow,
-//        ),
-//    )
-//    Surface(
-//        color = MaterialTheme.colors.primary,
-//        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
-//    ) {
-//        Row(modifier = Modifier.padding(24.dp)) {
-//            Column(
-//                modifier = Modifier
-//                    .weight(1f)
-//                    .padding(bottom = extraPadding.coerceAtLeast(0.dp))
-//            ) {
-//                Text(text = "Hello,")
-//                Text(
-//                    text = name,
-//                    style = MaterialTheme.typography.h4.copy(fontWeight = FontWeight.ExtraBold)
-//                )
-//            }
-//            OutlinedButton(onClick = { expanded = !expanded }) {
-//                Text(if (expanded) "Show less" else "Show more")
-//            }
-//        }
-//    }
 }
 
 @Preview(
