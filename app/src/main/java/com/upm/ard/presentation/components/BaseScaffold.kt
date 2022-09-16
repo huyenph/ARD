@@ -37,7 +37,7 @@ fun BaseScaffold(
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
     Scaffold(
-        modifier = Modifier.pointerInput(Unit) {
+        modifier = modifier.pointerInput(Unit) {
             detectTapGestures(onTap = {
                 keyboardController?.hide()
             })
