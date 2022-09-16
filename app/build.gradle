@@ -24,7 +24,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.upm.nativeapp"
+        applicationId "com.upm.ard"
         minSdk 21
         targetSdk 33
         versionCode 1
@@ -65,18 +65,18 @@ android {
 
     flavorDimensions "app"
     productFlavors {
-        def PRODUCTION_APP_ID = "com.upm.nativeapp"
-        def PRODUCTION_BASE_API_URL = "\"https://api.upm.com/\""
+        def PRODUCTION_APP_ID = "com.upm.ard"
+        def PRODUCTION_BASE_API_URL = "\"https://api.ard.com/\""
         def PRODUCTION_VERSION_CODE = 1
         def PRODUCTION_VERSION_NAME = "1.0"
 
-        def STAGING_APP_ID = "com.upm.nativeapp.staging"
-        def STAGING_BASE_API_URL = "\"https://staging-api.upm.com/\""
+        def STAGING_APP_ID = "com.upm.ard.staging"
+        def STAGING_BASE_API_URL = "\"https://staging-api.ard.com/\""
         def STAGING_VERSION_CODE = 1
         def STAGING_VERSION_NAME = "1.0"
 
-        def DEVELOP_APP_ID = "com.upm.nativeapp.dev"
-        def DEVELOP_BASE_API_URL = "\"https://develop-api.upm.com/\""
+        def DEVELOP_APP_ID = "com.upm.ard.dev"
+        def DEVELOP_BASE_API_URL = "\"https://develop-api.ard.com/\""
         def DEVELOP_VERSION_CODE = 1
         def DEVELOP_VERSION_NAME = "1.0"
 
@@ -88,7 +88,7 @@ android {
             versionName PRODUCTION_VERSION_NAME
             buildConfigField "String", "BASE_API_URL", PRODUCTION_BASE_API_URL
             buildConfigField "Boolean", "NEED_SSL", "false"
-            resValue "string", "flavor_app_name", "UPM Native"
+            resValue "string", "flavor_app_name", "ARD"
         }
         staging {
             dimension "app"
@@ -98,7 +98,7 @@ android {
             versionName STAGING_VERSION_NAME
             buildConfigField "String", "BASE_API_URL", STAGING_BASE_API_URL
             buildConfigField "Boolean", "NEED_SSL", "false"
-            resValue "string", "flavor_app_name", "UPM Native STAG"
+            resValue "string", "flavor_app_name", "ARD STAG"
         }
         development {
             dimension "app"
@@ -106,7 +106,7 @@ android {
             versionCode DEVELOP_VERSION_CODE
             versionName DEVELOP_VERSION_NAME
             buildConfigField "String", "BASE_API_URL", DEVELOP_BASE_API_URL
-            resValue "string", "flavor_app_name", "UPM Native DEV"
+            resValue "string", "flavor_app_name", "ARD DEV"
         }
     }
     // Allow references to generated code

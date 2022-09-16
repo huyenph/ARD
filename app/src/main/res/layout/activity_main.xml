@@ -3,7 +3,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.upm.nativeapp.presentation.MainViewModel" />
+            type="com.upm.ard.presentation.MainViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
