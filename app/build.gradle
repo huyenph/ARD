@@ -76,7 +76,7 @@ android {
         def STAGING_VERSION_NAME = "1.0"
 
         def DEVELOP_APP_ID = "com.upm.ard.dev"
-        def DEVELOP_BASE_API_URL = "\"https://develop-api.ard.com/\""
+        def DEVELOP_BASE_API_URL = "\"https://api.stackexchange.com/2.3/\""
         def DEVELOP_VERSION_CODE = 1
         def DEVELOP_VERSION_NAME = "1.0"
 

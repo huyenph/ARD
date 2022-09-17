@@ -50,7 +50,8 @@ fun UpmNavHost(modifier: Modifier = Modifier, mainViewModel: MainViewModel) {
             popExitTransition = { popExitTransition },
         ) {
             AuthScreen(navController = navController, onLanguageClicked = {
-                navController.navigateSingleTopTo(Language.route)
+//                navController.navigateSingleTopTo(Language.route)
+                mainViewModel.login()
             })
         }
 //        composable(

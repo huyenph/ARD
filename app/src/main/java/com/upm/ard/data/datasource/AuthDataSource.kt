@@ -1,5 +1,6 @@
 package com.upm.ard.data.datasource
 
+import android.util.Log
 import com.google.gson.JsonObject
 import com.upm.ard.data.remote.ApiService
 import com.upm.ard.data.remote.adapter.NetworkResponse
@@ -18,10 +19,12 @@ class AuthDataSource @Inject constructor(
         password: String
     ): NetworkResponse<JsonObject, ErrorResponse> {
         val jsonObject = withContext(Dispatchers.IO) {
-            val map = HashMap<String, Any>()
-            map["username"] = username
-            map["password"] = password
-            apiService.requestLogin(map)
+//            val map = HashMap<String, Any>()
+//            map["username"] = username
+//            map["password"] = password
+//            apiService.requestLogin(map)
+            Log.d("test", "execute here")
+            apiService.getQuestions("stackoverflow", 1)
         }
         return jsonObject
     }

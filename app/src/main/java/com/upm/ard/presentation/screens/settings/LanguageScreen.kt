@@ -81,6 +81,6 @@ private fun LanguageItem(
 @Composable
 private fun OnLanguageScreenPreview() {
     UpmTheme {
-        LanguageScreen(mainViewModel = MainViewModel(null))
+//        LanguageScreen(mainViewModel = MainViewModel(null))
     }
 }
