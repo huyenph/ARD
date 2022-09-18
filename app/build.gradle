@@ -210,7 +210,9 @@ dependencies {
     implementation "androidx.work:work-multiprocess:$work_version"
 
     // coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    def coroutines_version = "1.6.4"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version")
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
 
     // okhttp
     // define a BOM and its version

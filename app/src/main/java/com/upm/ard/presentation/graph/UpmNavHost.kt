@@ -6,6 +6,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.composable
@@ -17,6 +18,8 @@ import com.upm.ard.presentation.MainViewModel
 import com.upm.ard.presentation.screens.auth.AuthScreen
 import com.upm.ard.presentation.screens.main.MainScreen
 import com.upm.ard.presentation.screens.settings.LanguageScreen
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 
 @ExperimentalPagerApi
 @ExperimentalAnimationApi

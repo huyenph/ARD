@@ -14,6 +14,8 @@ import com.upm.ard.domain.model.AppThemingType
 import com.upm.ard.domain.model.LanguageModel
 import com.upm.ard.domain.usecase.AuthUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
