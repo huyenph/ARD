@@ -1,23 +1,31 @@
 package com.upm.ard.presentation
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.google.gson.reflect.TypeToken
 import com.upm.ard.common.extensions.PREFS_APP_CONFIGS
 import com.upm.ard.common.extensions.loadJsonFromAssets
+import com.upm.ard.data.datasource.AuthDataSource
 import com.upm.ard.data.local.storage.Storage
 import com.upm.ard.domain.model.AppConfigModel
 import com.upm.ard.domain.model.AppConfigType
 import com.upm.ard.domain.model.AppThemingType
 import com.upm.ard.domain.model.LanguageModel
+import com.upm.ard.domain.usecase.AuthUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val storage: Storage?) : BaseViewModel() {
+class MainViewModel @Inject constructor(
+    private val storage: Storage?,
+    private val authUseCase: AuthUseCase,
+) : BaseViewModel() {
     private val _appConfig: MutableStateFlow<AppConfigModel> = MutableStateFlow(AppConfigModel())
     val appConfig: StateFlow<AppConfigModel> = _appConfig
 
@@ -28,17 +36,24 @@ class MainViewModel @Inject constructor(private val storage: Storage?) : BaseVie
         getDefaultConfig()
     }
 
+    fun login() {
+        launchDataLoad {
+            authUseCase.getQuestions()
+        }
+        Log.d("test", "down here")
+    }
+
     fun fetchLanguages(context: Context): List<LanguageModel> {
         var languages: List<LanguageModel> = ArrayList()
 //        launchDataLoad {
-            val languagesJson = loadJsonFromAssets(
-                context,
-                "languages.json",
-                object : TypeToken<List<LanguageModel>>() {}.type,
-                gson,
-            )
-            @Suppress("UNCHECKED_CAST")
-            languages = languagesJson as List<LanguageModel>
+        val languagesJson = loadJsonFromAssets(
+            context,
+            "languages.json",
+            object : TypeToken<List<LanguageModel>>() {}.type,
+            gson,
+        )
+        @Suppress("UNCHECKED_CAST")
+        languages = languagesJson as List<LanguageModel>
 //        }
         return languages
     }

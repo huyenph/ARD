@@ -34,4 +34,10 @@ interface ApiService {
 
     @POST("upload file")
     fun requestFile(@Body file: RequestBody): GenericResponse<JsonObject>
+
+    @GET("questions")
+    suspend fun getQuestions(
+        @Query("site") site: String,
+        @Query("page") page: Int
+    ): GenericResponse<JsonObject>
 }

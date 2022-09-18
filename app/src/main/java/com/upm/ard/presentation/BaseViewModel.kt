@@ -9,6 +9,7 @@ import com.upm.ard.data.remote.ApiResponseListener
 import com.upm.ard.data.remote.response.ErrorResponse
 import com.upm.ard.di.GsonBuilderLenient
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.reflect.Type
 import javax.inject.Inject
@@ -41,7 +42,7 @@ open class BaseViewModel @Inject constructor() : ViewModel(), ApiResponseListene
             try {
                 block()
             } catch (e: Throwable) {
-
+                print(e)
             }
         }
     }

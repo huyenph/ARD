@@ -19,5 +19,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "UpmAndroid"
+rootProject.name = "ARD"
 include ':app'
