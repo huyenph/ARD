@@ -6,6 +6,9 @@ import com.upm.ard.data.local.persistence.entity.UserEntity
 
 @Dao
 interface AppDao {
+    @Query("SELECT * FROM $USER_TABLE_NAME")
+    suspend fun getAllUser(): List<UserEntity>
+
     @Query("SELECT * FROM $USER_TABLE_NAME WHERE user_id = :id")
     suspend fun getUserById(id: String): UserEntity
 
