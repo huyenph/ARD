@@ -16,8 +16,13 @@ import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -51,11 +56,13 @@ class RoomDatabaseTest {
     }
 
     @Test
-    fun insertItem() {
+    fun insertItem() = runTest(UnconfinedTestDispatcher()) {
         val user = UserEntity(userName = "Huyen")
-        dbDao.insertUser(user)
-        val users = dbDao.getAllUser()
-        assert(users.contains(user))
+        launch { dbDao.insertUser(user) }
+//        val users = launch { dbDao.getAllUser() }
+//        assert(users.contains(user))
+        advanceUntilIdle()
+        assertEquals(user.userName, dbDao.getUserById(user.id).userName)
     }
 //    {
 //        val user = UserEntity(userName = "Huyen")
