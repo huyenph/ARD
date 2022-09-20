@@ -56,7 +56,7 @@ class RoomDatabaseTest {
     }
 
     @Test
-    fun insertItem() = runTest(UnconfinedTestDispatcher()) {
+    fun insertItem() = runTest {
         val user = UserEntity(userName = "Huyen")
         launch { dbDao.insertUser(user) }
 //        val users = launch { dbDao.getAllUser() }
