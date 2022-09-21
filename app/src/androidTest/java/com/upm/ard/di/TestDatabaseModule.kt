@@ -9,7 +9,19 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.android.testing.UninstallModules
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Named
+import javax.inject.Singleton
 
+@Module
+@InstallIn(SingletonComponent::class)
+object TestDatabaseModule {
+    @Provides
+    @Singleton
+    fun provideDatabase(@ApplicationContext context: Context): AppDatabase =
+        Room.databaseBuilder(context, AppDatabase::class.java, DB_NAME)
+            .build()
+
+    @Provides
+    @Singleton
+    fun provideDBDao(database: AppDatabase): AppDao = database.appDao()
+}
