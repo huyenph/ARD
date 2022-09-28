@@ -9,6 +9,7 @@ import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.*
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -41,10 +42,10 @@ class RoomDatabaseTest {
     }
 
     @Test
-    fun insertItem() = runTest {
+    fun insertItem() = runBlocking {
         val user = UserEntity(userName = "ARD")
         launch { dbDao.insertUser(user) }
-        advanceUntilIdle()
+//        advanceUntilIdle()
         assert(dbDao.getAllUser().contains(user))
 //        assertEquals(user.userName, dbDao.getUserById(user.id).userName)
     }
