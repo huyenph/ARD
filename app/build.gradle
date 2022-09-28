@@ -106,6 +106,7 @@ android {
             versionCode DEVELOP_VERSION_CODE
             versionName DEVELOP_VERSION_NAME
             buildConfigField "String", "BASE_API_URL", DEVELOP_BASE_API_URL
+            buildConfigField "Boolean", "NEED_SSL", "false"
             resValue "string", "flavor_app_name", "ARD DEV"
         }
     }
@@ -121,7 +122,7 @@ dependencies {
 
     // Jetpack Compose
     implementation "androidx.compose.ui:ui:1.2.1"
-    implementation "androidx.activity:activity-compose:1.5.1"
+    implementation "androidx.activity:activity-compose:1.6.0"
 
     // Material Design
     implementation "androidx.compose.material:material:1.2.1"
@@ -219,6 +220,7 @@ dependencies {
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.10.0"))
     // define any required OkHttp artifacts without version
     implementation("com.squareup.okhttp3:okhttp")
+    implementation ("com.squareup.okhttp3:okhttp-tls")
     implementation("com.squareup.okhttp3:logging-interceptor")
 
     // retrofit
