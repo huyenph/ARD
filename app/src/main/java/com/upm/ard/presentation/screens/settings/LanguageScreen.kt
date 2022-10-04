@@ -25,7 +25,7 @@ import com.upm.ard.presentation.ui.theme.UpmTheme
 
 @Composable
 fun LanguageScreen(navController: NavHostController? = null, mainViewModel: MainViewModel) {
-    val languages = mainViewModel.fetchLanguages(LocalContext.current).toMutableStateList()
+    val languages = mainViewModel.fetchLanguages().toMutableStateList()
     BaseScaffold(
         topBar = {
             NormalAppBar(

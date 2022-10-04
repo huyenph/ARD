@@ -46,22 +46,22 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        lifecycleScope.launch {
-//            repeatOnLifecycle(Lifecycle.State.STARTED) {
-//                mainVM.appConfig.collect() {
-//                    if (it.configType == AppConfigType.LANGUAGE || it.configType == AppConfigType.DEFAULT) {
-//                        setLanguage(this@MainActivity, it.language.locale)
-//                    }
-//                    if (it.configType == AppConfigType.THEME || it.configType == AppConfigType.DEFAULT) {
-//                        window.statusBarColor = ContextCompat.getColor(
-//                            applicationContext,
-//                            if (it.appThemingType == AppThemingType.DARK) R.color.background_dark
-//                            else R.color.background_light
-//                        )
-//                    }
-//                }
-//            }
-//        }
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                mainVM.appConfig.collect() {
+                    if (it.configType == AppConfigType.LANGUAGE || it.configType == AppConfigType.DEFAULT) {
+                        setLanguage(this@MainActivity, it.language.locale)
+                    }
+                    if (it.configType == AppConfigType.THEME || it.configType == AppConfigType.DEFAULT) {
+                        window.statusBarColor = ContextCompat.getColor(
+                            applicationContext,
+                            if (it.appThemingType == AppThemingType.DARK) R.color.background_dark
+                            else R.color.background_light
+                        )
+                    }
+                }
+            }
+        }
         setContent {
             val themeState = mainVM.appConfig.collectAsState().value.appThemingType
             UpmTheme(darkTheme = themeState == AppThemingType.DARK) {
