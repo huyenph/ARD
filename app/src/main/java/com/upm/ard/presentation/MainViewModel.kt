@@ -12,6 +12,7 @@ import com.upm.ard.domain.model.AppConfigModel
 import com.upm.ard.domain.model.AppConfigType
 import com.upm.ard.domain.model.AppThemingType
 import com.upm.ard.domain.model.LanguageModel
+import com.upm.ard.domain.usecase.AppUseCase
 import com.upm.ard.domain.usecase.AuthUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
@@ -24,6 +25,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val storage: Storage?,
+    private val appUseCase: AppUseCase,
     private val authUseCase: AuthUseCase,
 ) : BaseViewModel() {
     private val _appConfig: MutableStateFlow<AppConfigModel> = MutableStateFlow(AppConfigModel())
@@ -43,18 +45,11 @@ class MainViewModel @Inject constructor(
         Log.d("test", "down here")
     }
 
-    fun fetchLanguages(context: Context): List<LanguageModel> {
+    fun fetchLanguages(): List<LanguageModel> {
         var languages: List<LanguageModel> = ArrayList()
-//        launchDataLoad {
-        val languagesJson = loadJsonFromAssets(
-            context,
-            "languages.json",
-            object : TypeToken<List<LanguageModel>>() {}.type,
-            gson,
-        )
-        @Suppress("UNCHECKED_CAST")
-        languages = languagesJson as List<LanguageModel>
-//        }
+        launchDataLoad {
+            languages = appUseCase.fetchAppLanguages()
+        }
         return languages
     }
 
