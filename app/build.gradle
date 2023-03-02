@@ -110,6 +110,7 @@ android {
             resValue "string", "flavor_app_name", "ARD DEV"
         }
     }
+    namespace 'com.upm.ard'
 }
 
 dependencies {
