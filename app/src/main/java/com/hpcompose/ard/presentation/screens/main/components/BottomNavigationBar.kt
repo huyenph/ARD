@@ -8,7 +8,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.hpcompose.ard.presentation.screens.main.NavigationItem
-import com.hpcompose.ard.presentation.ui.theme.UpmTheme
+import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 
 @Composable
 fun BottomNavigationBar(navController: NavHostController, items: List<NavigationItem>) {
@@ -46,7 +46,7 @@ fun BottomNavigationBar(navController: NavHostController, items: List<Navigation
 @Preview(showBackground = true)
 @Composable
 private fun OnBottomNavigationBarPreview() {
-    UpmTheme {
+    ARDTheme {
 //        BottomNavigationBar()
     }
 }

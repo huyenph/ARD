@@ -20,7 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hpcompose.ard.R
-import com.hpcompose.ard.presentation.ui.theme.UpmTheme
+import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 
 @Composable
 fun AlignYourBodyElement(
@@ -48,7 +48,7 @@ fun AlignYourBodyElement(
 @Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
 @Composable
 fun OnAlignYourBodyElementPreview() {
-    UpmTheme {
+    ARDTheme {
         AlignYourBodyElement(
             modifier = Modifier.padding(8.dp),
             text = R.string.ab1_inversions,

@@ -6,7 +6,7 @@ import androidx.compose.material.icons.outlined.Language
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hpcompose.ard.presentation.ui.theme.UpmTheme
+import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 import com.hpcompose.ard.presentation.ui.theme.backgroundLightColor
 import com.hpcompose.ard.presentation.ui.theme.primaryColor
 
@@ -31,7 +31,7 @@ fun AuthAppBar(onLanguageClicked: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 private fun OnAuthAppBarPreview() {
-    UpmTheme {
+    ARDTheme {
         Surface {
             AuthAppBar(
                 onLanguageClicked = {}

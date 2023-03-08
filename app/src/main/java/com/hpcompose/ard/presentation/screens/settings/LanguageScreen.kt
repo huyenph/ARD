@@ -20,7 +20,7 @@ import com.hpcompose.ard.domain.model.LanguageModel
 import com.hpcompose.ard.presentation.MainViewModel
 import com.hpcompose.ard.presentation.components.BaseScaffold
 import com.hpcompose.ard.presentation.components.NormalAppBar
-import com.hpcompose.ard.presentation.ui.theme.UpmTheme
+import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 
 @Composable
 fun LanguageScreen(navController: NavHostController? = null, mainViewModel: MainViewModel) {
@@ -79,7 +79,7 @@ private fun LanguageItem(
 @Preview(showBackground = true)
 @Composable
 private fun OnLanguageScreenPreview() {
-    UpmTheme {
+    ARDTheme {
 //        LanguageScreen(mainViewModel = MainViewModel(null))
     }
 }

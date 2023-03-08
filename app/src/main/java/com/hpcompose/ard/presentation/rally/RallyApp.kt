@@ -17,12 +17,12 @@ import com.hpcompose.ard.presentation.rally.ui.accounts.SingleAccountScreen
 import com.hpcompose.ard.presentation.rally.ui.bills.BillsScreen
 import com.hpcompose.ard.presentation.rally.ui.components.RallyTabRow
 import com.hpcompose.ard.presentation.rally.ui.overview.OverviewScreen
-import com.hpcompose.ard.presentation.ui.theme.UpmTheme
+import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 
 @RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun RallyApp() {
-    UpmTheme {
+    ARDTheme {
 //        var currentScreen: RallyDestination by remember { mutableStateOf(Overview) }
         val navController = rememberNavController()
         val currentBackStack by navController.currentBackStackEntryAsState()

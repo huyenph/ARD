@@ -34,7 +34,7 @@ import com.hpcompose.ard.common.extensions.setLanguage
 import com.hpcompose.ard.domain.model.AppConfigType
 import com.hpcompose.ard.domain.model.AppThemingType
 import com.hpcompose.ard.presentation.graph.UpmNavHost
-import com.hpcompose.ard.presentation.ui.theme.UpmTheme
+import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -64,7 +64,7 @@ class MainActivity : ComponentActivity() {
         }
         setContent {
             val themeState = mainVM.appConfig.collectAsState().value.appThemingType
-            UpmTheme(darkTheme = themeState == AppThemingType.DARK) {
+            ARDTheme(darkTheme = themeState == AppThemingType.DARK) {
                 UpmNavHost(mainViewModel = mainVM)
             }
         }
@@ -169,7 +169,7 @@ private fun CardContent(name: String) {
 @Preview(showBackground = true, widthDp = 320)
 @Composable
 fun DefaultPreview() {
-    UpmTheme {
+    ARDTheme() {
         Greetings()
     }
 }
@@ -177,7 +177,7 @@ fun DefaultPreview() {
 @Preview(showBackground = true, widthDp = 320, heightDp = 320)
 @Composable
 fun OnBoardingPreview() {
-    UpmTheme {
+    ARDTheme {
         OnboardingScreen(onContinueClicked = {})
     }
 }

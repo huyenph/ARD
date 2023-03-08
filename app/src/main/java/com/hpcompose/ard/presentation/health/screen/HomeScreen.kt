@@ -15,7 +15,7 @@ import com.hpcompose.ard.presentation.health.component.AlignYourBodyRow
 import com.hpcompose.ard.presentation.health.component.FavoriteCollectionsGrid
 import com.hpcompose.ard.presentation.health.component.HomeSection
 import com.hpcompose.ard.presentation.health.component.SearchBar
-import com.hpcompose.ard.presentation.ui.theme.UpmTheme
+import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
@@ -39,5 +39,5 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 @Preview(showBackground = true, backgroundColor = 0xFFF0EAE2)
 @Composable
 fun OnHomeScreenPreview() {
-    UpmTheme { HomeScreen() }
+    ARDTheme { HomeScreen() }
 }

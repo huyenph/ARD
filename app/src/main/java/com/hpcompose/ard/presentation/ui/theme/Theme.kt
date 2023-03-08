@@ -42,7 +42,7 @@ private val RallyColorPalette = darkColors(
 )
 
 @Composable
-fun UpmTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+fun ARDTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {
@@ -60,27 +60,27 @@ fun UpmTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable ()
 /**
  * A theme overlay used for dialogs.
  */
-@Composable
-fun UpmThemeOverlay(content: @Composable () -> Unit) {
-    val dialogColors = darkColors(
-        primary = Color.White,
-        surface = Color.White.copy(alpha = 0.12f).compositeOver(Color.Black),
-        onSurface = Color.White
-    )
-
-    // Copy the current [Typography] and replace some text styles for this theme.
-    val currentTypography = MaterialTheme.typography
-    val dialogTypography = currentTypography.copy(
-        body2 = currentTypography.body1.copy(
-            fontWeight = FontWeight.Normal,
-            fontSize = 20.sp,
-            lineHeight = 28.sp,
-            letterSpacing = 1.sp
-        ),
-        button = currentTypography.button.copy(
-            fontWeight = FontWeight.Bold,
-            letterSpacing = 0.2.em
-        )
-    )
-    MaterialTheme(colors = dialogColors, typography = dialogTypography, content = content)
-}
+//@Composable
+//fun UpmThemeOverlay(content: @Composable () -> Unit) {
+//    val dialogColors = darkColors(
+//        primary = Color.White,
+//        surface = Color.White.copy(alpha = 0.12f).compositeOver(Color.Black),
+//        onSurface = Color.White
+//    )
+//
+//    // Copy the current [Typography] and replace some text styles for this theme.
+//    val currentTypography = MaterialTheme.typography
+//    val dialogTypography = currentTypography.copy(
+//        body2 = currentTypography.body1.copy(
+//            fontWeight = FontWeight.Normal,
+//            fontSize = 20.sp,
+//            lineHeight = 28.sp,
+//            letterSpacing = 1.sp
+//        ),
+//        button = currentTypography.button.copy(
+//            fontWeight = FontWeight.Bold,
+//            letterSpacing = 0.2.em
+//        )
+//    )
+//    MaterialTheme(colors = dialogColors, typography = dialogTypography, content = content)
+//}
