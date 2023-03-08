@@ -1,7 +1,7 @@
 package com.hpcompose.ard.data.datasource.remote.dto.question
 
 import com.google.gson.annotations.SerializedName
-import com.hpcompose.ard.domain.model.BaseModel
+import com.hpcompose.ard.core.BaseModel
 
 data class QuestionItemResponse(
     @SerializedName("tags") val tags: List<String>? = null,

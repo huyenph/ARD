@@ -12,10 +12,10 @@ import androidx.navigation.NavHostController
 import com.hpcompose.ard.R
 import com.hpcompose.ard.domain.model.AppThemingType
 import com.hpcompose.ard.domain.model.LanguageModel
-import com.hpcompose.ard.modules.main.MainViewModel
+import com.hpcompose.ard.presentation.MainViewModel
 import com.hpcompose.ard.presentation.components.OptionField
-import com.hpcompose.ard.presentation.graph.Language
-import com.hpcompose.ard.presentation.graph.navigateSingleTopTo
+import com.hpcompose.ard.core.graph.Language
+import com.hpcompose.ard.core.graph.navigateSingleTopTo
 
 @Composable
 fun SettingsScreen(

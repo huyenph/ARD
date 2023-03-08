@@ -1,4 +1,4 @@
-package com.hpcompose.ard.modules.main
+package com.hpcompose.ard.presentation
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
@@ -11,7 +11,7 @@ import com.hpcompose.ard.domain.model.AppThemingType
 import com.hpcompose.ard.domain.model.LanguageModel
 import com.hpcompose.ard.domain.usecase.AppUseCase
 import com.hpcompose.ard.domain.usecase.AuthUseCase
-import com.hpcompose.ard.presentation.BaseViewModel
+import com.hpcompose.ard.core.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

@@ -16,6 +16,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.hpcompose.ard.modules.main.components.BottomNavigationBar
 import com.hpcompose.ard.modules.main.components.NavigationDrawer
+import com.hpcompose.ard.presentation.MainViewModel
 import com.hpcompose.ard.presentation.components.BaseScaffold
 import com.hpcompose.ard.presentation.components.NormalAppBar
 import com.hpcompose.ard.presentation.ui.theme.ARDTheme

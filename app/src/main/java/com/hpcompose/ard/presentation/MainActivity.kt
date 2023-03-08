@@ -33,8 +33,7 @@ import com.hpcompose.ard.R
 import com.hpcompose.ard.common.setLanguage
 import com.hpcompose.ard.domain.model.AppConfigType
 import com.hpcompose.ard.domain.model.AppThemingType
-import com.hpcompose.ard.modules.main.MainViewModel
-import com.hpcompose.ard.presentation.graph.UpmNavHost
+import com.hpcompose.ard.core.graph.UpmNavHost
 import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

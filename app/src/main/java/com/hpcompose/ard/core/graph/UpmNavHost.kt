@@ -1,4 +1,4 @@
-package com.hpcompose.ard.presentation.graph
+package com.hpcompose.ard.core.graph
 
 import androidx.compose.animation.*
 import androidx.compose.animation.core.FastOutSlowInEasing
@@ -15,7 +15,7 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.hpcompose.ard.modules.auth.AuthScreen
 import com.hpcompose.ard.modules.main.MainScreen
-import com.hpcompose.ard.modules.main.MainViewModel
+import com.hpcompose.ard.presentation.MainViewModel
 import com.hpcompose.ard.modules.settings.LanguageScreen
 
 @ExperimentalPagerApi

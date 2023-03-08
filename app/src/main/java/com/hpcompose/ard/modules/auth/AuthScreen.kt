@@ -11,8 +11,8 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.hpcompose.ard.modules.auth.components.AuthAppBar
 import com.hpcompose.ard.presentation.components.BaseScaffold
-import com.hpcompose.ard.presentation.graph.Auth
-import com.hpcompose.ard.presentation.graph.Main
+import com.hpcompose.ard.core.graph.Auth
+import com.hpcompose.ard.core.graph.Main
 import com.hpcompose.ard.presentation.ui.theme.backgroundLightColor
 import kotlinx.coroutines.launch
 
