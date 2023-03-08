@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.hpcompose.ard.presentation.screens.main.NavigationItem
-import com.hpcompose.ard.presentation.ui.theme.UpmTheme
+import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -82,7 +82,7 @@ fun DrawerItem(
 @Preview(showBackground = true)
 @Composable
 private fun OnDrawerPreview() {
-    UpmTheme {
+    ARDTheme() {
 //        NavigationDrawer()
     }
 }

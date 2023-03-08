@@ -19,7 +19,7 @@ import com.hpcompose.ard.presentation.components.BaseScaffold
 import com.hpcompose.ard.presentation.components.NormalAppBar
 import com.hpcompose.ard.presentation.screens.main.components.BottomNavigationBar
 import com.hpcompose.ard.presentation.screens.main.components.NavigationDrawer
-import com.hpcompose.ard.presentation.ui.theme.UpmTheme
+import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 import kotlinx.coroutines.launch
 
 @Composable
@@ -71,7 +71,7 @@ fun MainScreen(
 @Preview(showBackground = true)
 @Composable
 private fun OnMainScreenPreview() {
-    UpmTheme {
+    ARDTheme {
 //        MainScreen()
     }
 }

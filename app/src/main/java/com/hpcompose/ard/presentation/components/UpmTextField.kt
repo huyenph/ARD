@@ -14,7 +14,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
-import com.hpcompose.ard.presentation.ui.theme.UpmTheme
+import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 import com.hpcompose.ard.presentation.ui.theme.primaryColor
 
 @Composable
@@ -52,7 +52,7 @@ fun UpmTextField(
 @Preview(showBackground = true)
 @Composable
 private fun OnUpmTextFieldPreview() {
-    UpmTheme {
+    ARDTheme {
         UpmTextField(
             value = TextFieldValue("email@gmail.com"),
             label = R.string.placeholder_search,

@@ -14,7 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hpcompose.ard.presentation.ui.theme.UpmTheme
+import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 
 @Composable
 fun WellnessTaskItemState(
@@ -62,7 +62,7 @@ fun WellnessTaskItem(
 @Preview(showBackground = true)
 @Composable
 fun OnWellnessTaskItemPreview() {
-    UpmTheme() {
+    ARDTheme {
         WellnessTaskItem(
             taskName = "My Task",
             checked = false,

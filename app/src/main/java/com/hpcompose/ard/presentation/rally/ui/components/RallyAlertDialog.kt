@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
-import com.hpcompose.ard.presentation.ui.theme.UpmThemeOverlay
+//import com.hpcompose.ard.presentation.ui.theme.UpmThemeOverlay
 
 @Composable
 fun RallyAlertDialog(
@@ -21,7 +21,7 @@ fun RallyAlertDialog(
     bodyText: String,
     buttonText: String
 ) {
-    UpmThemeOverlay {
+//    UpmThemeOverlay {
         AlertDialog(
             onDismissRequest = onDismiss,
             text = { Text(bodyText) },
@@ -42,5 +42,5 @@ fun RallyAlertDialog(
                 }
             }
         )
-    }
+//    }
 }

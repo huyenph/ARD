@@ -13,11 +13,11 @@
         android:label="@string/flavor_app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.UpmAndroid">
+        android:theme="@style/Theme.ARD">
         <activity
             android:name="com.hpcompose.ard.presentation.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.UpmAndroid">
+            android:theme="@style/Theme.ARD">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

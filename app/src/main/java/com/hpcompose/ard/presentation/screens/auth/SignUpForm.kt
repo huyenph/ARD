@@ -17,10 +17,7 @@ import com.hpcompose.ard.R
 import com.hpcompose.ard.presentation.components.UpmTextField
 import com.hpcompose.ard.presentation.screens.auth.components.FormDivider
 import com.hpcompose.ard.presentation.screens.auth.components.SocialLogin
-import com.hpcompose.ard.presentation.ui.theme.UpmTheme
-import com.hpcompose.ard.presentation.ui.theme.backgroundLightColor
-import com.hpcompose.ard.presentation.ui.theme.primaryColor
-import com.hpcompose.ard.presentation.ui.theme.textColor
+import com.hpcompose.ard.presentation.ui.theme.*
 
 @Composable
 fun SignUpForm(onSignUp: () -> Unit = {}, onLoginClicked: () -> Unit = {}) {
@@ -125,7 +122,7 @@ fun SignUpForm(onSignUp: () -> Unit = {}, onLoginClicked: () -> Unit = {}) {
 @Preview(showBackground = true, backgroundColor = 0xFFf4f5fa)
 @Composable
 fun OnSignUpFormPreview() {
-    UpmTheme {
+    ARDTheme {
         SignUpForm(onLoginClicked = {})
     }
 }

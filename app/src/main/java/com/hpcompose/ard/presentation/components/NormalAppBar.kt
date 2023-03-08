@@ -15,7 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.hpcompose.ard.presentation.ui.theme.UpmTheme
+import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 
 @Composable
 fun NormalAppBar(
@@ -45,7 +45,7 @@ fun NormalAppBar(
 @Preview(showBackground = true)
 @Composable
 private fun OnNormalAppBarPreview() {
-    UpmTheme {
+    ARDTheme {
         NormalAppBar(title = R.string.language)
     }
 }

@@ -10,7 +10,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hpcompose.ard.presentation.ui.theme.UpmTheme
+import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 
 @Composable
 fun WaterCounter(
@@ -56,7 +56,7 @@ fun WaterCounterState(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun OnWaterCountPreview() {
-    UpmTheme {
+    ARDTheme {
         WaterCounter(count = 0, onIncrement = {}, onReset = {})
     }
 }
