@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.upm.ard">
+    package="com.hpcompose.ard">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <application
-        android:name="com.upm.ard.BaseApplication"
+        android:name="com.hpcompose.ard.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/flavor_app_name"
@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UpmAndroid">
         <activity
-            android:name="com.upm.ard.presentation.MainActivity"
+            android:name="com.hpcompose.ard.presentation.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.UpmAndroid">
             <intent-filter>
