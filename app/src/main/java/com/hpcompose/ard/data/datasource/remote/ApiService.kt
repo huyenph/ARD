@@ -3,7 +3,7 @@ package com.hpcompose.ard.data.datasource.remote
 import com.google.gson.JsonObject
 import com.hpcompose.ard.data.datasource.remote.adapter.NetworkResponse
 import com.hpcompose.ard.data.datasource.remote.dto.ErrorResponse
-import com.hpcompose.ard.domain.model.BaseModel
+import com.hpcompose.ard.core.BaseModel
 import okhttp3.RequestBody
 import retrofit2.http.*
 

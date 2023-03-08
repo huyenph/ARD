@@ -2,7 +2,7 @@ package com.hpcompose.ard.data.datasource.remote.helper
 
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
-import com.hpcompose.ard.domain.model.BaseModel
+import com.hpcompose.ard.core.BaseModel
 import okhttp3.Response
 
 class HttpError : BaseModel() {

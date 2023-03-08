@@ -1,4 +1,4 @@
-package com.hpcompose.ard.presentation.graph
+package com.hpcompose.ard.core.graph
 
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.hpcompose.ard.R

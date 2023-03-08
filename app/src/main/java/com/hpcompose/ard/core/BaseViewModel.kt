@@ -1,4 +1,4 @@
-package com.hpcompose.ard.presentation
+package com.hpcompose.ard.core
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

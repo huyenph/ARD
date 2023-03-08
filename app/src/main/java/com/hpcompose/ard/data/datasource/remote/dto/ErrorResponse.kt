@@ -1,7 +1,7 @@
 package com.hpcompose.ard.data.datasource.remote.dto
 
 import com.google.gson.annotations.SerializedName
-import com.hpcompose.ard.domain.model.BaseModel
+import com.hpcompose.ard.core.BaseModel
 
 data class ErrorResponse(
     @SerializedName("error_id") val errorId: Int = 0,

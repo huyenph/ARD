@@ -1,5 +1,7 @@
 package com.hpcompose.ard.domain.model
 
+import com.hpcompose.ard.core.BaseModel
+
 enum class AppConfigType { DEFAULT, LANGUAGE, THEME }
 
 enum class AppThemingType { LIGHT, DARK }

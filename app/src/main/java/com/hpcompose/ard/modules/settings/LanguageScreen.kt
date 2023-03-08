@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.hpcompose.ard.domain.model.LanguageModel
-import com.hpcompose.ard.modules.main.MainViewModel
+import com.hpcompose.ard.presentation.MainViewModel
 import com.hpcompose.ard.presentation.components.BaseScaffold
 import com.hpcompose.ard.presentation.components.NormalAppBar
 import com.hpcompose.ard.presentation.ui.theme.ARDTheme

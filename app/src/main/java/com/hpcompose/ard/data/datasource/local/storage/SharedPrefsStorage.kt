@@ -3,7 +3,7 @@ package com.hpcompose.ard.data.datasource.local.storage
 import android.content.Context
 import com.google.gson.Gson
 import com.hpcompose.ard.di.GsonBuilderLenient
-import com.hpcompose.ard.domain.model.BaseModel
+import com.hpcompose.ard.core.BaseModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.lang.reflect.Type
 import javax.inject.Inject

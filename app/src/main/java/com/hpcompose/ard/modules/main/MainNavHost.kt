@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import com.hpcompose.ard.modules.event.EventScreen
 import com.hpcompose.ard.modules.notification.NotificationScreen
 import com.hpcompose.ard.modules.settings.SettingsScreen
+import com.hpcompose.ard.presentation.MainViewModel
 
 @Composable
 fun MainNavHost(

@@ -1,6 +1,6 @@
 package com.hpcompose.ard.data.datasource.local.storage
 
-import com.hpcompose.ard.domain.model.BaseModel
+import com.hpcompose.ard.core.BaseModel
 import java.lang.reflect.Type
 
 interface Storage {
