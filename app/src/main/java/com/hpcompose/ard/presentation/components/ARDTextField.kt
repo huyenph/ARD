@@ -18,7 +18,7 @@ import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 import com.hpcompose.ard.presentation.ui.theme.primaryColor
 
 @Composable
-fun UpmTextField(
+fun ARDTextField(
     modifier: Modifier = Modifier,
     value: TextFieldValue = TextFieldValue(""),
     @StringRes label: Int,
@@ -53,7 +53,7 @@ fun UpmTextField(
 @Composable
 private fun OnUpmTextFieldPreview() {
     ARDTheme {
-        UpmTextField(
+        ARDTextField(
             value = TextFieldValue("email@gmail.com"),
             label = R.string.placeholder_search,
             placeHolder = R.string.placeholder_search,

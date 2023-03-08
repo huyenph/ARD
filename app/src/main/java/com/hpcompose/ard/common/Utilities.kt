@@ -1,4 +1,4 @@
-package com.hpcompose.ard.common.extensions
+package com.hpcompose.ard.common
 
 import android.content.Context
 import com.google.gson.Gson
@@ -18,9 +18,6 @@ fun setLanguage(context: Context, languageCode: String?) {
 
 fun loadJsonFromAssets(context: Context, fileName: String, type: Type?, gson: Gson): Any? {
     try {
-//        val inputStream = activity.assets.open(fileName)
-//        val size = inputStream.available()
-//        val buffer = byt(size)
         context.assets.open(fileName).bufferedReader().use {
             val jsonString = it.readText()
             if (type == null) return jsonString

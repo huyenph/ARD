@@ -30,7 +30,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.hpcompose.ard.R
-import com.hpcompose.ard.common.extensions.setLanguage
+import com.hpcompose.ard.common.setLanguage
 import com.hpcompose.ard.domain.model.AppConfigType
 import com.hpcompose.ard.domain.model.AppThemingType
 import com.hpcompose.ard.presentation.graph.UpmNavHost

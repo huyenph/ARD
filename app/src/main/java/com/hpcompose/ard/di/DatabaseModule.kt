@@ -2,7 +2,7 @@ package com.hpcompose.ard.di
 
 import android.content.Context
 import androidx.room.Room
-import com.hpcompose.ard.common.extensions.DB_NAME
+import com.hpcompose.ard.common.DB_NAME
 import com.hpcompose.ard.data.local.persistence.AppDao
 import com.hpcompose.ard.data.local.persistence.AppDatabase
 import dagger.Module
