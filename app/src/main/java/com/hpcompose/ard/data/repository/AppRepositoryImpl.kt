@@ -1,4 +1,4 @@
-package com.hpcompose.ard.data.datasource
+package com.hpcompose.ard.data.repository
 
 import android.content.Context
 import com.google.gson.Gson
@@ -12,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class AppDataSource @Inject constructor(
+class AppRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context,
     @GsonBuilderLenient private val gson: Gson,
 ) : AppRepository {

@@ -1,4 +1,4 @@
-package com.hpcompose.ard.data.remote.helper
+package com.hpcompose.ard.data.datasource.remote.helper
 
 import android.text.TextUtils
 import okhttp3.Interceptor

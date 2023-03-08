@@ -1,4 +1,4 @@
-package com.hpcompose.ard.data.remote.adapter
+package com.hpcompose.ard.data.datasource.remote.adapter
 
 import retrofit2.Call
 import retrofit2.CallAdapter

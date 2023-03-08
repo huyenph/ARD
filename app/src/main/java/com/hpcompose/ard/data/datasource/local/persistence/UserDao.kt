@@ -1,11 +1,11 @@
-package com.hpcompose.ard.data.local.persistence
+package com.hpcompose.ard.data.datasource.local.persistence
 
 import androidx.room.*
 import com.hpcompose.ard.common.USER_TABLE_NAME
-import com.hpcompose.ard.data.local.persistence.entity.UserEntity
+import com.hpcompose.ard.data.datasource.local.persistence.entity.UserEntity
 
 @Dao
-interface AppDao {
+interface UserDao {
     @Query("SELECT * FROM $USER_TABLE_NAME")
     suspend fun getAllUser(): List<UserEntity>
 

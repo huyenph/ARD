@@ -1,4 +1,4 @@
-package com.hpcompose.ard.data.local.storage
+package com.hpcompose.ard.data.datasource.local.storage
 
 import com.hpcompose.ard.domain.model.BaseModel
 import java.lang.reflect.Type

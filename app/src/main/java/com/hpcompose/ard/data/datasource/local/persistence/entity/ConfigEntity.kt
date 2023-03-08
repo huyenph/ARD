@@ -1,4 +1,4 @@
-package com.hpcompose.ard.data.local.persistence.entity
+package com.hpcompose.ard.data.datasource.local.persistence.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

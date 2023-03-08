@@ -1,4 +1,4 @@
-package com.hpcompose.ard.data.remote.helper
+package com.hpcompose.ard.data.datasource.remote.helper
 
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName

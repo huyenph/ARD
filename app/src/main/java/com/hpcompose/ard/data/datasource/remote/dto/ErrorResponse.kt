@@ -1,4 +1,4 @@
-package com.hpcompose.ard.data.remote.response
+package com.hpcompose.ard.data.datasource.remote.dto
 
 import com.google.gson.annotations.SerializedName
 import com.hpcompose.ard.domain.model.BaseModel

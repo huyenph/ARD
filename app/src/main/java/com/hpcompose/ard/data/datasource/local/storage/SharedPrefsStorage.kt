@@ -1,4 +1,4 @@
-package com.hpcompose.ard.data.local.storage
+package com.hpcompose.ard.data.datasource.local.storage
 
 import android.content.Context
 import com.google.gson.Gson
@@ -10,7 +10,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class SharedPreferencesStorage @Inject constructor(
+class SharedPrefsStorage @Inject constructor(
     @ApplicationContext context: Context,
     @GsonBuilderLenient private val gson: Gson,
 ) : Storage {

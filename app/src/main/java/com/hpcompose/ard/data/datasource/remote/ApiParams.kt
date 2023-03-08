@@ -1,4 +1,4 @@
-package com.hpcompose.ard.data.remote
+package com.hpcompose.ard.data.datasource.remote
 
 class ApiParams {
     private val params = HashMap<String, Any>()
