@@ -1,7 +1,7 @@
 package com.hpcompose.ard.data.local.persistence
 
 import androidx.room.*
-import com.hpcompose.ard.common.extensions.USER_TABLE_NAME
+import com.hpcompose.ard.common.USER_TABLE_NAME
 import com.hpcompose.ard.data.local.persistence.entity.UserEntity
 
 @Dao

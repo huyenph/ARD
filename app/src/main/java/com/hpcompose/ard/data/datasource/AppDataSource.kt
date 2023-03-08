@@ -3,7 +3,7 @@ package com.hpcompose.ard.data.datasource
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.hpcompose.ard.common.extensions.loadJsonFromAssets
+import com.hpcompose.ard.common.loadJsonFromAssets
 import com.hpcompose.ard.di.GsonBuilderLenient
 import com.hpcompose.ard.domain.model.LanguageModel
 import com.hpcompose.ard.domain.repository.AppRepository

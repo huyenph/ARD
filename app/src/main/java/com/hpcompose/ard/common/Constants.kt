@@ -1,4 +1,4 @@
-package com.hpcompose.ard.common.extensions
+package com.hpcompose.ard.common
 
 const val DB_NAME = "users.db"
 const val USER_TABLE_NAME = "users"

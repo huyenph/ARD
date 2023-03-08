@@ -2,7 +2,7 @@ package com.hpcompose.ard.data.local.persistence.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import com.hpcompose.ard.common.extensions.APP_CONFIG_TABLE
+import com.hpcompose.ard.common.APP_CONFIG_TABLE
 import java.util.*
 
 @Entity(tableName = APP_CONFIG_TABLE)

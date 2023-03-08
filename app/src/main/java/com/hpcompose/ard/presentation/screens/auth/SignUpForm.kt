@@ -14,7 +14,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hpcompose.ard.R
-import com.hpcompose.ard.presentation.components.UpmTextField
+import com.hpcompose.ard.presentation.components.ARDTextField
 import com.hpcompose.ard.presentation.screens.auth.components.FormDivider
 import com.hpcompose.ard.presentation.screens.auth.components.SocialLogin
 import com.hpcompose.ard.presentation.ui.theme.*
@@ -38,7 +38,7 @@ fun SignUpForm(onSignUp: () -> Unit = {}, onLoginClicked: () -> Unit = {}) {
             modifier = Modifier.padding(top = 8.dp),
             text = stringResource(id = R.string.register_excerpt),
         )
-        UpmTextField(
+        ARDTextField(
             modifier = Modifier.padding(top = 10.dp, bottom = 5.dp),
             backgroundColor = backgroundLightColor,
             textColor = textColor,
@@ -48,7 +48,7 @@ fun SignUpForm(onSignUp: () -> Unit = {}, onLoginClicked: () -> Unit = {}) {
             keyboardType = KeyboardType.Text,
             onValueChange = { usernameValue = it },
         )
-        UpmTextField(
+        ARDTextField(
             modifier = Modifier.padding(top = 10.dp, bottom = 5.dp),
             backgroundColor = backgroundLightColor,
             textColor = textColor,
@@ -58,7 +58,7 @@ fun SignUpForm(onSignUp: () -> Unit = {}, onLoginClicked: () -> Unit = {}) {
             keyboardType = KeyboardType.Email,
             onValueChange = { emailValue = it },
         )
-        UpmTextField(
+        ARDTextField(
             modifier = Modifier.padding(top = 5.dp),
             backgroundColor = backgroundLightColor,
             textColor = textColor,

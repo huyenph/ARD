@@ -3,7 +3,7 @@ package com.hpcompose.ard.presentation
 import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.google.gson.reflect.TypeToken
-import com.hpcompose.ard.common.extensions.PREFS_APP_CONFIGS
+import com.hpcompose.ard.common.PREFS_APP_CONFIGS
 import com.hpcompose.ard.data.local.storage.Storage
 import com.hpcompose.ard.domain.model.AppConfigModel
 import com.hpcompose.ard.domain.model.AppConfigType

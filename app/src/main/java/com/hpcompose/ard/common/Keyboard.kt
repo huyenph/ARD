@@ -1,4 +1,4 @@
-package com.hpcompose.ard.common.extensions
+package com.hpcompose.ard.common
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -40,7 +40,7 @@ private fun hideSoftKeyboard(activity: Activity) {
                 clearFocusEditText(arrayOf(view))
             }
         }
-    } catch (e: Exception) {
+    } catch (_: Exception) {
     }
 }
 
