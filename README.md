@@ -1,4 +1,4 @@
-# UPM Android - The application using Jetpack Components, Hilt, Compose, etc.
+# ARD - The application using Jetpack Components, Hilt, Compose, etc.
 
 ## Project Structure 
  

@@ -55,5 +55,7 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
         fun newValue() {
             pending.set(true)
         }
+
+
     }
 }
