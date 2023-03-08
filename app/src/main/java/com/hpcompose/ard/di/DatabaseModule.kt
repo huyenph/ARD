@@ -3,8 +3,8 @@ package com.hpcompose.ard.di
 import android.content.Context
 import androidx.room.Room
 import com.hpcompose.ard.common.DB_NAME
-import com.hpcompose.ard.data.local.persistence.AppDao
-import com.hpcompose.ard.data.local.persistence.AppDatabase
+import com.hpcompose.ard.data.datasource.local.persistence.UserDao
+import com.hpcompose.ard.data.datasource.local.persistence.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,5 +23,5 @@ object DatabaseModule {
             .build()
 
     @Provides
-    fun provideDBDao(database: AppDatabase): AppDao = database.appDao()
+    fun provideDBDao(database: AppDatabase): UserDao = database.appDao()
 }

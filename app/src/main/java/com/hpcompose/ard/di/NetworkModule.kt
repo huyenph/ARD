@@ -4,10 +4,10 @@ import android.text.TextUtils
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.hpcompose.ard.BuildConfig
-import com.hpcompose.ard.data.local.storage.Storage
-import com.hpcompose.ard.data.remote.ApiService
-import com.hpcompose.ard.data.remote.adapter.NetworkResponseAdapterFactory
-import com.hpcompose.ard.data.remote.helper.HttpError
+import com.hpcompose.ard.data.datasource.local.storage.Storage
+import com.hpcompose.ard.data.datasource.remote.ApiService
+import com.hpcompose.ard.data.datasource.remote.adapter.NetworkResponseAdapterFactory
+import com.hpcompose.ard.data.datasource.remote.helper.HttpError
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

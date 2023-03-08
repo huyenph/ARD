@@ -13,10 +13,10 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.pager.ExperimentalPagerApi
-import com.hpcompose.ard.presentation.MainViewModel
-import com.hpcompose.ard.presentation.screens.auth.AuthScreen
-import com.hpcompose.ard.presentation.screens.main.MainScreen
-import com.hpcompose.ard.presentation.screens.settings.LanguageScreen
+import com.hpcompose.ard.modules.auth.AuthScreen
+import com.hpcompose.ard.modules.main.MainScreen
+import com.hpcompose.ard.modules.main.MainViewModel
+import com.hpcompose.ard.modules.settings.LanguageScreen
 
 @ExperimentalPagerApi
 @ExperimentalAnimationApi

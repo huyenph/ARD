@@ -1,7 +1,7 @@
 package com.hpcompose.ard.di
 
-import com.hpcompose.ard.data.datasource.AppDataSource
-import com.hpcompose.ard.data.datasource.AuthDataSource
+import com.hpcompose.ard.data.repository.AppRepositoryImpl
+import com.hpcompose.ard.data.repository.AuthRepositoryImpl
 import com.hpcompose.ard.domain.repository.AppRepository
 import com.hpcompose.ard.domain.repository.AuthRepository
 import dagger.Binds
@@ -13,8 +13,8 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
     @Binds
-    abstract fun provideAppRepository(appDataSource: AppDataSource): AppRepository
+    abstract fun provideAppRepository(appRepositoryImpl: AppRepositoryImpl): AppRepository
 
     @Binds
-    abstract fun provideAuthRepository(authDataSource: AuthDataSource): AuthRepository
+    abstract fun provideAuthRepository(authRepositoryImpl: AuthRepositoryImpl): AuthRepository
 }

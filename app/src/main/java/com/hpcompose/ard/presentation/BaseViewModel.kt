@@ -4,9 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.gson.JsonObject
-import com.hpcompose.ard.data.remote.ApiClient
-import com.hpcompose.ard.data.remote.ApiResponseListener
-import com.hpcompose.ard.data.remote.response.ErrorResponse
+import com.hpcompose.ard.data.datasource.remote.ApiClient
+import com.hpcompose.ard.data.datasource.remote.ApiResponseListener
+import com.hpcompose.ard.data.datasource.remote.dto.ErrorResponse
 import com.hpcompose.ard.di.GsonBuilderLenient
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
