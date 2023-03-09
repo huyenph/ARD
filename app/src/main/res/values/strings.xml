@@ -32,6 +32,8 @@
     <string name="app_navigation_description">Navigation icon description</string>
     <string name="app_actions_description">Action icon description</string>
 
+    <string name="notification_channel_id">notificationChannelId</string>
+
     <string name="welcome_upm">Welcome to UPM 👋🏻</string>
     <string name="adventure_start_here">Adventure starts here 🚀</string>
     <string name="login_excerpt">Please login to your account and start the adventure</string>
@@ -60,4 +62,5 @@
     <string name="notification">Notification</string>
     <string name="settings">Settings</string>
     <string name="dark_mode">Dark mode</string>
+    <string name="cancel">Cancel</string>
 </resources>
