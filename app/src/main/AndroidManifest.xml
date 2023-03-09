@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.hpcompose.ard">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        android:name="com.hpcompose.ard.BaseApplication"
+        android:name="com.hpcompose.ard.ARDApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/flavor_app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ARD">
+        android:theme="@style/Theme.ARD"
+        tools:targetApi="33">
         <activity
             android:name="com.hpcompose.ard.presentation.MainActivity"
             android:exported="true"
@@ -30,6 +34,21 @@
                 <data android:scheme="rally" android:host="single_account" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".data.service.broadcast.BootReceiver"
+            android:enabled="false"
+            android:exported="false"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".data.service.broadcast.AlarmReceiver"
+            android:enabled="true" />
+
     </application>
 
 </manifest>
