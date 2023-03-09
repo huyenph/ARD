@@ -13,6 +13,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.hpcompose.ard.R
+import com.hpcompose.ard.data.service.broadcast.NotificationDismissReceiver
 import com.hpcompose.ard.presentation.MainActivity
 
 @OptIn(ExperimentalAnimationApi::class, ExperimentalPagerApi::class)
@@ -29,13 +30,13 @@ fun showNotification(
     val pendingIntent = PendingIntent.getActivity(
         context, 0, activityIntent, PendingIntent.FLAG_IMMUTABLE
     )
-//    val deleteIntent = Intent(context, NotificationDismissReceiver::class.java)
-//    val deletePendingIntent = PendingIntent.getBroadcast(
-//        context,
-//        1,
-//        deleteIntent,
-//        PendingIntent.FLAG_IMMUTABLE,
-//    )
+    val deleteIntent = Intent(context, NotificationDismissReceiver::class.java)
+    val deletePendingIntent = PendingIntent.getBroadcast(
+        context,
+        1,
+        deleteIntent,
+        PendingIntent.FLAG_IMMUTABLE,
+    )
     val notification =
         NotificationCompat.Builder(
             context,
