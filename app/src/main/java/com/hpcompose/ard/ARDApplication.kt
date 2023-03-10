@@ -9,6 +9,8 @@ import android.media.Ringtone
 import android.os.Build
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.ktx.messaging
 import com.hpcompose.ard.data.service.broadcast.BootReceiver
 import dagger.hilt.android.HiltAndroidApp
 
@@ -24,14 +26,16 @@ class ARDApplication : Application() {
             PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
             PackageManager.DONT_KILL_APP
         )
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                getString(R.string.notification_channel_id),
-                getString(R.string.default_placeholder),
-                NotificationManager.IMPORTANCE_HIGH,
-            )
-            val notificationManager = getSystemService(NotificationManager::class.java)
-            notificationManager.createNotificationChannel(channel)
-        }
+        Firebase.messaging.subscribeToTopic("ard")
+
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            val channel = NotificationChannel(
+//                getString(R.string.notification_channel_id),
+//                getString(R.string.default_placeholder),
+//                NotificationManager.IMPORTANCE_HIGH,
+//            )
+//            val notificationManager = getSystemService(NotificationManager::class.java)
+//            notificationManager.createNotificationChannel(channel)
+//        }
     }
 }
