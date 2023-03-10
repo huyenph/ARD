@@ -1,5 +1,6 @@
 package com.hpcompose.ard.common
 
+import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
@@ -7,6 +8,7 @@ import android.content.Intent
 import android.media.Ringtone
 import android.media.RingtoneManager
 import android.net.Uri
+import android.os.Build
 import androidx.annotation.StringRes
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.core.app.NotificationCompat
@@ -62,6 +64,19 @@ fun showNotification(
     val notificationManager =
         context.getSystemService(Context.NOTIFICATION_SERVICE) as
                 NotificationManager
+
+    val channelId = context.getString(R.string.notification_channel_id)
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
+        && notificationManager.getNotificationChannel(channelId) == null
+    ) {
+        val channel = NotificationChannel(
+            channelId,
+            context.getString(R.string.default_placeholder),
+            NotificationManager.IMPORTANCE_HIGH,
+        )
+        notificationManager.createNotificationChannel(channel)
+    }
 
     notificationManager.notify(notificationId, notification)
 }
