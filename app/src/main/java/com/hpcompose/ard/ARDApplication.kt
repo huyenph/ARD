@@ -27,15 +27,5 @@ class ARDApplication : Application() {
             PackageManager.DONT_KILL_APP
         )
         Firebase.messaging.subscribeToTopic("ard")
-
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            val channel = NotificationChannel(
-//                getString(R.string.notification_channel_id),
-//                getString(R.string.default_placeholder),
-//                NotificationManager.IMPORTANCE_HIGH,
-//            )
-//            val notificationManager = getSystemService(NotificationManager::class.java)
-//            notificationManager.createNotificationChannel(channel)
-//        }
     }
 }
