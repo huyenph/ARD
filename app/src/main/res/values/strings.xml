@@ -33,6 +33,7 @@
     <string name="app_actions_description">Action icon description</string>
 
     <string name="notification_channel_id">notificationChannelId</string>
+    <string name="fcm_notification_channel_id">fcmNotificationChannelId</string>
 
     <string name="welcome_upm">Welcome to UPM 👋🏻</string>
     <string name="adventure_start_here">Adventure starts here 🚀</string>
