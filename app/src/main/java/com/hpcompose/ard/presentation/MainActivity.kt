@@ -1,6 +1,8 @@
 package com.hpcompose.ard.presentation
 
+import android.Manifest
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -29,6 +31,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.rememberMultiplePermissionsState
+import com.google.accompanist.permissions.rememberPermissionState
 import com.hpcompose.ard.R
 import com.hpcompose.ard.common.setLanguage
 import com.hpcompose.ard.domain.model.AppConfigType
@@ -38,6 +43,7 @@ import com.hpcompose.ard.presentation.ui.theme.ARDTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalPermissionsApi::class)
 @ExperimentalAnimationApi
 @ExperimentalPagerApi
 @AndroidEntryPoint
@@ -63,6 +69,22 @@ class MainActivity : ComponentActivity() {
             }
         }
         setContent {
+            val permissionsStates =
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    rememberMultiplePermissionsState(
+                        permissions = listOf(Manifest.permission.POST_NOTIFICATIONS),
+                        onPermissionsResult = { results: Map<String, Boolean> ->
+
+                        },
+                    )
+                } else {
+                    null
+                }
+
+            LaunchedEffect(true) {
+                permissionsStates?.launchMultiplePermissionRequest()
+            }
+
             val themeState = mainVM.appConfig.collectAsState().value.appThemingType
             ARDTheme(darkTheme = themeState == AppThemingType.DARK) {
                 UpmNavHost(mainViewModel = mainVM)
