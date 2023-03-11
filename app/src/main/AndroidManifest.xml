@@ -10,8 +10,10 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        android:name="com.hpcompose.ard.ARDApplication"
+        android:name=".ARDApplication"
         android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/flavor_app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -19,7 +21,7 @@
         android:theme="@style/Theme.ARD"
         tools:targetApi="33">
         <activity
-            android:name="com.hpcompose.ard.presentation.MainActivity"
+            android:name=".presentation.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.ARD">
             <intent-filter>
@@ -27,16 +29,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.VIEW" />-->
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--                <category android:name="android.intent.category.BROWSABLE" />-->
 
-                <data
-                    android:host="single_account"
-                    android:scheme="rally" />
-            </intent-filter>
+<!--                <data-->
+<!--                    android:host="single_account"-->
+<!--                    android:scheme="rally" />-->
+<!--            </intent-filter>-->
         </activity>
 
         <receiver
@@ -53,25 +55,26 @@
             android:name=".data.service.broadcast.AlarmReceiver"
             android:enabled="true" />
 
-        <service
-            android:name=".data.service.FCMService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
+<!--        <service-->
+<!--            android:name=".data.service.FCMService"-->
+<!--            android:exported="false"-->
+<!--            tools:ignore="Instantiatable">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
 
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_launcher_background" />
+<!--        <meta-data-->
+<!--            android:name="com.google.firebase.messaging.default_notification_icon"-->
+<!--            android:resource="@drawable/ic_launcher_background" />-->
 
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/primary_color" />
+<!--        <meta-data-->
+<!--            android:name="com.google.firebase.messaging.default_notification_color"-->
+<!--            android:resource="@color/primary_color" />-->
 
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_channel_id"
-            android:value="@string/fcm_notification_channel_id" />
+<!--        <meta-data-->
+<!--            android:name="com.google.firebase.messaging.default_notification_channel_id"-->
+<!--            android:value="@string/fcm_notification_channel_id" />-->
 
     </application>
 

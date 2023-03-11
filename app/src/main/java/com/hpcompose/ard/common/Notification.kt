@@ -22,8 +22,8 @@ import com.hpcompose.ard.presentation.MainActivity
 fun showNotification(
     context: Context,
     notificationId: Int,
-    @StringRes title: Int = R.string.default_placeholder,
-    @StringRes ticker: Int = R.string.default_placeholder,
+    @StringRes title: Int = R.string.notification_title,
+    @StringRes ticker: Int = R.string.notification_title,
     content: String
 ) {
     val activityIntent = Intent(context, MainActivity::class.java).apply {
@@ -65,18 +65,18 @@ fun showNotification(
         context.getSystemService(Context.NOTIFICATION_SERVICE) as
                 NotificationManager
 
-    val channelId = context.getString(R.string.notification_channel_id)
+//    val channelId = context.getString(R.string.notification_channel_id)
 
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
-        && notificationManager.getNotificationChannel(channelId) == null
-    ) {
-        val channel = NotificationChannel(
-            channelId,
-            context.getString(R.string.default_placeholder),
-            NotificationManager.IMPORTANCE_HIGH,
-        )
-        notificationManager.createNotificationChannel(channel)
-    }
+//    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
+//        && notificationManager.getNotificationChannel(channelId) == null
+//    ) {
+//        val channel = NotificationChannel(
+//            channelId,
+//            context.getString(R.string.default_placeholder),
+//            NotificationManager.IMPORTANCE_HIGH,
+//        )
+//        notificationManager.createNotificationChannel(channel)
+//    }
 
     notificationManager.notify(notificationId, notification)
 }

@@ -15,7 +15,7 @@ class AlarmReceiver : BroadcastReceiver() {
             showNotification(
                 context = context,
                 notificationId = 0,
-                content = context.getString(R.string.default_placeholder),
+                content = context.getString(R.string.notification_content),
             )
             (context.applicationContext as ARDApplication).apply {
                 alarmRingtoneState.value = playRingtone(context)
