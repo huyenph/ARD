@@ -26,6 +26,19 @@ class ARDApplication : Application() {
             PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
             PackageManager.DONT_KILL_APP
         )
-        Firebase.messaging.subscribeToTopic("ard")
+//        Firebase.messaging.subscribeToTopic("ard")
+
+        val notificationManager = getSystemService(NotificationManager::class.java)
+        val channelId = getString(R.string.notification_channel_id)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
+            notificationManager.getNotificationChannel(channelId) == null
+        ) {
+            val channel = NotificationChannel(
+                channelId,
+                getString(R.string.notification_channel_name),
+                NotificationManager.IMPORTANCE_HIGH,
+            )
+            notificationManager.createNotificationChannel(channel)
+        }
     }
 }
