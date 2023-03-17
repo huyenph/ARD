@@ -26,7 +26,7 @@ class ARDApplication : Application() {
             PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
             PackageManager.DONT_KILL_APP
         )
-//        Firebase.messaging.subscribeToTopic("ard")
+        Firebase.messaging.subscribeToTopic("ard")
 
         val notificationManager = getSystemService(NotificationManager::class.java)
         val channelId = getString(R.string.notification_channel_id)
