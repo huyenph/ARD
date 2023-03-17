@@ -2,7 +2,7 @@ package com.hpcompose.ard.modules.auth
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,7 +31,7 @@ fun SignInForm(onSignIn: () -> Unit = {}, onRegisterClicked: () -> Unit = {}) {
     ) {
         Text(
             text = stringResource(id = R.string.welcome_upm),
-            style = MaterialTheme.typography.h1
+//            style = MaterialTheme.typography.h1
         )
         Text(
             modifier = Modifier.padding(top = 8.dp),
@@ -63,7 +63,7 @@ fun SignInForm(onSignIn: () -> Unit = {}, onRegisterClicked: () -> Unit = {}) {
                 .padding(top = 10.dp)
                 .fillMaxWidth(),
             elevation = null,
-            colors = ButtonDefaults.buttonColors(backgroundColor = primaryColor),
+            colors = ButtonDefaults.buttonColors(containerColor = primaryColor),
             onClick = onSignIn,
         ) {
             Text(
